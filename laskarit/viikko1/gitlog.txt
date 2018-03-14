@@ -1,0 +1,125 @@
+anckoski@da5-cs-b221-10:/home/ad/lxhome/a/anckoski/Linux/otm1$ git log --stat | cat
+commit 79207e5a89497baf1f4c2d12af4df768a87619b8
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:47:41 2018 +0200
+
+    file22
+
+ tiedostoja/file22 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4cd41a81ca79183eddb76026c98da843ec31ba32
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:47:03 2018 +0200
+
+    tiedoston poistaminen ja uudelleen nimeäminen
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7dab813904129514354bd3e1f7b18897c65709f6
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:42:29 2018 +0200
+
+    uusia tiedostoja uuteen hakemistoon
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7dd32225f0aa4f8f4623053faf729a22fc3d6471
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:37:14 2018 +0200
+
+    tiedostomuokkausta
+
+ eka.txt    | 5 ++---
+ kolmas.txt | 1 +
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 07c46a86bffd96afedb1bce1313f7e948646a866
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:34:29 2018 +0200
+
+    tiedosto.txt muutettu eka.txt
+
+ eka.txt      | 15 +++++++++++++++
+ tiedosto.txt | 15 ---------------
+ 2 files changed, 15 insertions(+), 15 deletions(-)
+
+commit 708d4f2ad6fcdc753713796614e0e05bad195356
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:33:00 2018 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 84914555cf891990d0c7b304656262aa91c6fbba
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:30:40 2018 +0200
+
+    muokkauksia tiedosto.txtiin
+
+ tiedosto.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit 3c9ae744234eaa5724c55d85d4eaa08430a9eafa
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:25:30 2018 +0200
+
+    lisätty tekstiä
+
+ tiedosto.txt | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit 8a778bcc073275456784fb50daf938cab03220c4
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:21:05 2018 +0200
+
+    uusi hakemisto
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 61275b9f3268ec762c0ec6100dcbcd21c9fcd757
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:19:34 2018 +0200
+
+    muutokset toiseen ja kolmanteen
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit f07d086b57d210af71124d18a12453a0424e3041
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:15:19 2018 +0200
+
+    uusi tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 166fd87150a86d31a831296ad740eb3b1dd8531c
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:11:03 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 0d35c9947ff71158df06e9995d8647c2edb77c80
+Author: Ani <annaliinakoskinen@gmail.com>
+Date:   Wed Mar 14 12:07:07 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
