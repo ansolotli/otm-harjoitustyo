@@ -14,4 +14,12 @@
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
+        <action>
+            <actionName>CUSTOM-jacoco</actionName>
+            <displayName>jacoco</displayName>
+            <goals>
+                <goal>surefire:test</goal>
+                <goal>jacoco:report</goal>
+            </goals>
+        </action>
     </actions>
