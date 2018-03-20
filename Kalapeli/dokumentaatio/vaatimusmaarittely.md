@@ -4,7 +4,7 @@
 
 Kyseessä on Asteroids-tyyppinen peli, jossa pelaaja liikkuu ja nappaa kaloja osuessaan niihin. 
 
-## Suunnitellut toiminnallisuudet
+## Perusversion tarjoamat toiminnallisuudet
 
 - Pelaaja saa kalan kiinni osumalla kalaan
 - Pelikentällä on kareja, joita pelaajan tulee väistää tai peli loppuu
@@ -13,7 +13,7 @@ Kyseessä on Asteroids-tyyppinen peli, jossa pelaaja liikkuu ja nappaa kaloja os
 
 ## Jatkokehitysideoita
 
-- Kalojen alamitan huomiointi. Jokaisella kalalla on laji, pituus ja alamitta. Kun pelaaja saa kalan kiinni, hänelle annetaan vaihtoehto pitää kala tai päästää se menemään (pop-up -ikkuna)
+- Kalojen alamitan huomiointi. Kun kala jää kiinni, pop-up-ikkuna ilmestyy ja näyttää, mitä lajia ja minkä pituinen kala on kyseessä. Pelaajalle annetaan vaihtoehto pitää kala tai päästää se menemään.
 - Jos pelaaja pitää alamittaisen kalan, hän menettää pisteitä
 - Pistejärjestelmän hiominen. Lajibonus sen mukaan, montako eri lajia on kalastettu?
 - Peliajan rajaaminen
