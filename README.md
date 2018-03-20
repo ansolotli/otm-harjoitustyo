@@ -1,11 +1,20 @@
-## OTM-harjoitustyö
+# OTM-harjoitustyö
 
-**Tehtävät** 
+*Ohjelmistotekniikan menetelmät* -kurssin laskarit ja harjoitustyön olennaiset osat
 
-*Viikko 1*
+## Tehtävät 
 
-[komentorivi.txt](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+**Viikko 1**
 
+Git-harjoittelua:  
+[komentorivi.txt](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)  
 [gitlog.txt](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-Siinäpä ne sitten olivatkin!
+**Viikko 2**
+
+JUnit-harjoittelua:  
+[MaksukorttiTest.java](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/MaksukorttiTest.java)  
+[KassapaateTest.java](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/KassapaateTest.java)
+
+[Harjoitustyön vaatimusmäärittely](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Kalapeli/dokumentaatio/vaatimusmaarittely.md)  
+[Harjoitustyön tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Kalapeli/dokumentaatio/tuntikirjanpito.md)
