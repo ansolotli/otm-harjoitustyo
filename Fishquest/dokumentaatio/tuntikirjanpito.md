@@ -3,4 +3,5 @@
 | Päivä    | Tunnit | Mitä tein  |
 | -------- |:------:| :----------|
 | 20.3.    | 2  | Vaatimusmäärittely ja tuntikirjanpito |
-| yhteensä | 2 |  |
+|26.3.| 1 | Luokkakaavion miettiminen |
+| yhteensä | 3 |  |
