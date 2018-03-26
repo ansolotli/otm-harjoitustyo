@@ -13,9 +13,7 @@ Git-harjoittelua:
 **Viikko 2**
 
 JUnit-harjoittelua:  
-[MaksukorttiTest.java](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/MaksukorttiTest.java)  
-[KassapaateTest.java](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/KassapaateTest.java)  
 [jacoco-screenshot](https://github.com/ansolotli/otm-harjoitustyo/blob/master/laskarit/viikko2/jacoco.JPG)
 
-[Harjoitustyön vaatimusmäärittely](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Kalapeli/dokumentaatio/vaatimusmaarittely.md)  
-[Harjoitustyön tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Kalapeli/dokumentaatio/tuntikirjanpito.md)
+[Harjoitustyön vaatimusmäärittely](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/vaatimusmaarittely.md)  
+[Harjoitustyön tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/tuntikirjanpito.md)
