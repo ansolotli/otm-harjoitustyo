@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fishquest.ani.logics;
+package fishquest.logics;
 
 /**
  *
  * @author anckoski
  */
-public class Shape {
+public class Boat extends Shape {
+    
+    //Polygon vai joku muu?
     
 }
