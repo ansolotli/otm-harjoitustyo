@@ -19,6 +19,17 @@ public class GameApplication extends Application {
         
         Pane layout = new Pane();
         
+        
+        //luo vene
+        //luo karit
+        //luo kalat
+        
+        //painetut napit
+        
+        //animation timer & public void handle - 
+        //jos jotain nappia painetaan, jotain tapahtuu
+        //shape-metodit: käänny, liiku
+        
         Scene scene = new Scene(layout, 800, 400);
         stage.setScene(scene);
         stage.show();

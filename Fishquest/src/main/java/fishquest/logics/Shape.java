@@ -7,5 +7,11 @@ package fishquest.logics;
  */
 public class Shape {
     
+    //private Polygon?? shape;
+    
+    //public Polygon?? getShape() {
+      //  return this.shape;
+    //}
+    
     //metodit liikkumiselle, kääntymiselle, törmäämiselle...
 }
