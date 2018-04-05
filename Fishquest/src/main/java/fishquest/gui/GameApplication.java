@@ -2,8 +2,12 @@
 package fishquest.gui;
 
 import fishquest.logics.Boat;
+import fishquest.logics.Fish;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -31,8 +35,15 @@ public class GameApplication extends Application {
         Boat boat = new Boat(WIDTH/2, HEIGHT/2);
         layout.getChildren().add(boat.getShape());
         
+        List<Fish> listOfFish = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Random random = new Random();
+            Fish fish = new Fish(random.nextInt(WIDTH / 3), random.nextInt(HEIGHT));
+            listOfFish.add(fish);
+        }
+        listOfFish.forEach(fish -> layout.getChildren().add(fish.getShape()));
+        
         //luo karit
-        //luo kalat
         
         Map<KeyCode, Boolean> keysPressed = new HashMap<>();
         
@@ -62,7 +73,7 @@ public class GameApplication extends Application {
                 }
                 
                 boat.move();
-                
+                listOfFish.forEach(fish -> fish.move()); //kalat ei liiku :((
             }
         }.start();
         

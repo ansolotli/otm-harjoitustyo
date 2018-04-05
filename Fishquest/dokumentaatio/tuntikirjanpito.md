@@ -7,4 +7,5 @@
 | 27.3.    | 1 | Netbeans-säätöä, alustavat pakkaukset |
 | 3.4.     | 1 | JavaFx-videoita | 
 | 5.4.     | 3 | Veneen luominen ja liikuttaminen |
-| yhteensä | 8 |  |
+| 5.4.     | 1 | Kalojen luominen |
+| yhteensä | 9 |  |
