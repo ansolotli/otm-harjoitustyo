@@ -6,4 +6,5 @@
 | 26.3.    | 1 | Luokkakaavion miettiminen |
 | 27.3.    | 1 | Netbeans-säätöä, alustavat pakkaukset |
 | 3.4.     | 1 | JavaFx-videoita | 
-| yhteensä | 5 |  |
+| 5.4.     | 3 | Veneen luominen ja liikuttaminen |
+| yhteensä | 8 |  |

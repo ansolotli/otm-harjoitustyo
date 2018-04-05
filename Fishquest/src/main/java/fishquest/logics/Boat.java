@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fishquest.logics;
 
-/**
- *
- * @author anckoski
- */
+import javafx.scene.shape.Polygon;
+
+
 public class Boat extends Shape {
     
-    //Polygon vai joku muu?
+    public Boat(int x, int y) {
+        super(new Polygon(25, 15, 10, 10, 0, 0, 50, 0, 40, 10), x, y);
+    }
     
 }
