@@ -13,6 +13,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 public class GameApplication extends Application {
@@ -39,6 +41,7 @@ public class GameApplication extends Application {
         for (int i = 0; i < 10; i++) {
             Random random = new Random();
             Fish fish = new Fish(random.nextInt(WIDTH / 3), random.nextInt(HEIGHT));
+            //fish.setFill(Color.DARKBLUE);
             listOfFish.add(fish);
         }
         listOfFish.forEach(fish -> layout.getChildren().add(fish.getShape()));

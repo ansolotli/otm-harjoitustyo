@@ -9,7 +9,7 @@ import javafx.scene.shape.Polygon;
 public class Shape {
     
     private Polygon shape;
-    private Point2D motion;
+    protected Point2D motion;
     
     public Shape(Polygon polygon, int x, int y) {
         this.shape = polygon;
@@ -21,22 +21,6 @@ public class Shape {
     
     public Polygon getShape() {
         return this.shape;
-    }
-    
-    public void right() {
-        this.motion = new Point2D(this.motion.getX()+1, this.motion.getY());
-    }
-    
-    public void left() {
-        this.motion = new Point2D(this.motion.getX()-1, this.motion.getY());
-    }
-    
-    public void up() {
-        this.motion = new Point2D(this.motion.getX(), this.motion.getY()-1);
-    }
-    
-    public void down() {
-        this.motion = new Point2D(this.motion.getX(), this.motion.getY()+1);
     }
     
     public void move() {
@@ -60,7 +44,6 @@ public class Shape {
         }
     }
     
-    //liikkeen hidastaminen
     //törmääminen
     
 }

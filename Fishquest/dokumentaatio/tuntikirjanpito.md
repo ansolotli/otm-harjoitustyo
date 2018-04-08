@@ -8,4 +8,5 @@
 | 3.4.     | 1 | JavaFx-videoita | 
 | 5.4.     | 3 | Veneen luominen ja liikuttaminen |
 | 5.4.     | 1 | Kalojen luominen |
-| yhteensä | 9 |  |
+| 8.4.     | 0,5 | Liikkeen fiksaaminen |
+| yhteensä | 9,5 |  |
