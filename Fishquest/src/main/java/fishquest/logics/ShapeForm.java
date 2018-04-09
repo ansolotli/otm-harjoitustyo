@@ -4,14 +4,15 @@ package fishquest.logics;
 import fishquest.gui.GameApplication;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Shape;
 
 
-public class Shape {
+public abstract class ShapeForm {
     
-    private Polygon shape;
+    private final Polygon shape;
     protected Point2D motion;
     
-    public Shape(Polygon polygon, int x, int y) {
+    public ShapeForm(Polygon polygon, int x, int y) {
         this.shape = polygon;
         this.shape.setTranslateX(x);
         this.shape.setTranslateY(y);
@@ -44,6 +45,9 @@ public class Shape {
         }
     }
     
-    //törmääminen
+    public boolean collidesWith(ShapeForm shape2) {
+        Shape collisionArea = Shape.intersect(this.shape, shape2.getShape());
+        return collisionArea.getBoundsInLocal().getWidth() != -1;
+    }
     
 }

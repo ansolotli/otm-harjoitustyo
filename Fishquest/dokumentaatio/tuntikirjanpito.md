@@ -9,4 +9,5 @@
 | 5.4.     | 3 | Veneen luominen ja liikuttaminen |
 | 5.4.     | 1 | Kalojen luominen |
 | 8.4.     | 0,5 | Liikkeen fiksaaminen |
-| yhteensä | 9,5 |  |
+| 9.4.     | 2,5 | AnimationTimer-säätö, törmääminen |
+| yhteensä | 12 |  |

@@ -13,8 +13,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 public class GameApplication extends Application {
@@ -38,12 +36,15 @@ public class GameApplication extends Application {
         layout.getChildren().add(boat.getShape());
         
         List<Fish> listOfFish = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) { //10 kalaa testimäärä
             Random random = new Random();
             Fish fish = new Fish(random.nextInt(WIDTH / 3), random.nextInt(HEIGHT));
             //fish.setFill(Color.DARKBLUE);
             listOfFish.add(fish);
         }
+        
+        //randomoi kalojen luominen
+        
         listOfFish.forEach(fish -> layout.getChildren().add(fish.getShape()));
         
         //luo karit
@@ -59,9 +60,17 @@ public class GameApplication extends Application {
         
         new AnimationTimer() {
             
+            private long lastUpdate = 0;
+            
             @Override
             public void handle(long now) {
                 
+                if (now - lastUpdate < 8000000) {
+                    return;
+                }
+                lastUpdate = now;
+                
+                    
                 if (keysPressed.getOrDefault(KeyCode.LEFT, false)) {
                     boat.left();
                 }
@@ -76,7 +85,15 @@ public class GameApplication extends Application {
                 }
                 
                 boat.move();
-                listOfFish.forEach(fish -> fish.move()); //kalat ei liiku :((
+                listOfFish.forEach(fish -> fish.move());
+                
+                listOfFish.forEach(fish -> {
+                   if (boat.collidesWith(fish)) {
+                       layout.getChildren().remove(fish.getShape());
+                       //poista napattu kala listalta
+                       //piste pelaajalle
+                   }
+                });
             }
         }.start();
         
