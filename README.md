@@ -9,16 +9,16 @@ Asteroids-tyyppinen kalapeli FishQuest, joka on toteutettu harjoitustyönä kurs
 
 ## Komentorivitoiminnot
 
-####Testaus
+### Testaus
 
 Testit suoritetaan komennolla:
 
-| --- |
-| mvn test |
-
+```
+mvn test
+```
 Testikattavuusraportti luodaan komennolla:
 
-| --- |
-| mvn jacoco:report |
-
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto *target/site/jacoco/index.html*.
+```
+mvn jacoco:report
+```
+Kattavuusraporttia voi tarkastella avaamalla selaimessa tiedoston *target/site/jacoco/index.html*.
