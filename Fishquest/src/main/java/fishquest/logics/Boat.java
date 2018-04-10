@@ -4,8 +4,7 @@ package fishquest.logics;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Polygon;
 
-
-public class Boat extends ShapeForm {
+public class Boat extends MovingShape {
     
     public Boat(int x, int y) {
         super(new Polygon(0, 30, 0, 35, 30, 40, 60, 35, 60, 30, 50, 30, 30, 0, 30, 30), x, y);
@@ -32,5 +31,4 @@ public class Boat extends ShapeForm {
         super.motion = new Point2D(super.motion.getX() * 0.9, super.motion.getY() * 0.9);           
         super.move();
     }
-    
 }

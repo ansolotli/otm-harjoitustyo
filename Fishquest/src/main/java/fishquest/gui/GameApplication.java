@@ -70,7 +70,6 @@ public class GameApplication extends Application {
                 }
                 lastUpdate = now;
                 
-                    
                 if (keysPressed.getOrDefault(KeyCode.LEFT, false)) {
                     boat.left();
                 }

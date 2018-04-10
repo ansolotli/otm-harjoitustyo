@@ -4,24 +4,15 @@ package fishquest.logics;
 import fishquest.gui.GameApplication;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Shape;
 
-
-public abstract class ShapeForm {
+public abstract class MovingShape extends AnyShape {
     
-    private final Polygon shape;
     protected Point2D motion;
     
-    public ShapeForm(Polygon polygon, int x, int y) {
-        this.shape = polygon;
-        this.shape.setTranslateX(x);
-        this.shape.setTranslateY(y);
+    public MovingShape(Polygon polygon, int x, int y) {
+        super(polygon, x, y);
         
         this.motion = new Point2D(0, 0);
-    }
-    
-    public Polygon getShape() {
-        return this.shape;
     }
     
     public void move() {
@@ -44,10 +35,4 @@ public abstract class ShapeForm {
             this.shape.setTranslateY(this.shape.getTranslateY() % GameApplication.HEIGHT);
         }
     }
-    
-    public boolean collidesWith(ShapeForm shape2) {
-        Shape collisionArea = Shape.intersect(this.shape, shape2.getShape());
-        return collisionArea.getBoundsInLocal().getWidth() != -1;
-    }
-    
 }

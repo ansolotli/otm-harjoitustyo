@@ -10,4 +10,5 @@
 | 5.4.     | 1 | Kalojen luominen |
 | 8.4.     | 0,5 | Liikkeen fiksaaminen |
 | 9.4.     | 2,5 | AnimationTimer-säätö, törmääminen |
-| yhteensä | 12 |  |
+| 10.4.    | 1 | Ekat testit, ohjelman rakenteen muokkaus |
+| yhteensä | 13 |  |
