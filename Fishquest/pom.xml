@@ -27,7 +27,7 @@
                 <version>0.8.0</version>
                 <configuration>
                     <excludes>
-                        <exclude>FishQuest/fishquest.gui/*</exclude> //ei toimi?
+                        <exclude>fishquest/gui/*</exclude>
                     </excludes>
                 </configuration>     
                 <executions>
