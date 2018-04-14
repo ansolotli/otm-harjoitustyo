@@ -11,19 +11,19 @@ public class Boat extends MovingShape {
     }
     
     public void right() {
-        super.motion = new Point2D(super.motion.getX()+1, super.motion.getY());
+        super.motion = new Point2D(super.motion.getX() + 1, super.motion.getY());
     }
     
     public void left() {
-        super.motion = new Point2D(super.motion.getX()-1, super.motion.getY());
+        super.motion = new Point2D(super.motion.getX() - 1, super.motion.getY());
     }
     
     public void up() {
-        super.motion = new Point2D(super.motion.getX(), super.motion.getY()-1);
+        super.motion = new Point2D(super.motion.getX(), super.motion.getY() - 1);
     }
     
     public void down() {
-        super.motion = new Point2D(super.motion.getX(), super.motion.getY()+1);
+        super.motion = new Point2D(super.motion.getX(), super.motion.getY() + 1);
     }
     
     @Override
