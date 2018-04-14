@@ -11,4 +11,5 @@
 | 8.4.     | 0,5 | Liikkeen fiksaaminen |
 | 9.4.     | 2,5 | AnimationTimer-säätö, törmääminen |
 | 10.4.    | 1 | Ekat testit, ohjelman rakenteen muokkaus |
-| yhteensä | 13 |  |
+| 14.4.    | 1 | Checkstyle käyttöön, kalojen värit |
+| yhteensä | 14 |  |
