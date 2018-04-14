@@ -15,7 +15,7 @@ public abstract class MovingShape extends AnyShape {
         this.motion = new Point2D(0, 0);
     }
     
-    public void move() {
+    public void move() { //tsekkaa rajojen ylitys
         shape.setTranslateX(shape.getTranslateX() + this.motion.getX());
         shape.setTranslateY(shape.getTranslateY() + this.motion.getY());
         

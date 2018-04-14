@@ -12,4 +12,5 @@
 | 9.4.     | 2,5 | AnimationTimer-säätö, törmääminen |
 | 10.4.    | 1 | Ekat testit, ohjelman rakenteen muokkaus |
 | 14.4.    | 1 | Checkstyle käyttöön, kalojen värit |
-| yhteensä | 14 |  |
+| 14.4.    | 1 | Karit, pistelaskuri |
+| yhteensä | 15 |  |

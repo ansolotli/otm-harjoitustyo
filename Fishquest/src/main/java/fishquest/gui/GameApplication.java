@@ -2,16 +2,21 @@ package fishquest.gui;
 
 import fishquest.logics.Boat;
 import fishquest.logics.Fish;
+import fishquest.logics.Rock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GameApplication extends Application {
@@ -23,28 +28,42 @@ public class GameApplication extends Application {
 
     public static int WIDTH = 800;
     public static int HEIGHT = 400;
+    
+    Random random = new Random();
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Catch the fish!");
         Pane layout = new Pane();
         layout.setPrefSize(WIDTH, HEIGHT);
+        
+        Text pointCounter = new Text(15, 30, "Points: 0");
+        pointCounter.setFont(new Font(20));
+        layout.getChildren().add(pointCounter);
+        AtomicInteger points = new AtomicInteger();
+        
         Scene scene = new Scene(layout);
-
+        
         Boat boat = new Boat(WIDTH / 2, HEIGHT / 2);
         layout.getChildren().add(boat.getShape());
 
         List<Fish> listOfFish = new ArrayList<>();
         for (int i = 0; i < 10; i++) { //10 kalaa testimäärä
-            Random random = new Random();
             Fish fish = new Fish(random.nextInt(WIDTH / 3), random.nextInt(HEIGHT));
             listOfFish.add(fish);
         }
-
-        //randomoi kalojen luominen
+         //randomoi kalojen luominen
         listOfFish.forEach(fish -> layout.getChildren().add(fish.getShape()));
+        
+        List<Rock> listOfRocks = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Rock rock = new Rock(random.nextInt(WIDTH), random.nextInt(HEIGHT));
+            if (!rock.collidesWith(boat)) {
+                listOfRocks.add(rock);
+            }
+        }
+        listOfRocks.forEach(rock -> layout.getChildren().add(rock.getShape()));
 
-        //luo karit
         Map<KeyCode, Boolean> keysPressed = new HashMap<>();
 
         scene.setOnKeyPressed(e -> {
@@ -65,7 +84,7 @@ public class GameApplication extends Application {
                     return;
                 }
                 lastUpdate = now;
-
+                
                 if (keysPressed.getOrDefault(KeyCode.LEFT, false)) {
                     boat.left();
                 }
@@ -84,14 +103,28 @@ public class GameApplication extends Application {
 
                 listOfFish.forEach(fish -> {
                     if (boat.collidesWith(fish)) {
-                        layout.getChildren().remove(fish.getShape());
-                        //poista napattu kala listalta
-                        //piste pelaajalle
+                        fish.setAlive(false);
+                    }
+                    if (!fish.isAlive()) {
+                        pointCounter.setText("Points: " + points.incrementAndGet());
+                    }
+                });
+                
+                listOfFish.stream()
+                        .filter(fish -> !fish.isAlive())
+                        .forEach(fish -> layout.getChildren().remove(fish.getShape()));
+                listOfFish.removeAll(listOfFish.stream()
+                        .filter(fish -> !fish.isAlive())
+                        .collect(Collectors.toList())
+                );
+                
+                listOfRocks.forEach(rock -> {
+                    if (boat.collidesWith(rock)) {
+                        stop();
                     }
                 });
 
                 if (Math.random() < 0.010) {
-                    Random random = new Random();
                     Fish fish = new Fish(random.nextInt(WIDTH / 4), random.nextInt(HEIGHT));
                     if (!fish.collidesWith(boat)) {
                         listOfFish.add(fish);
