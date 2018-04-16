@@ -13,4 +13,5 @@
 | 10.4.    | 1 | Ekat testit, ohjelman rakenteen muokkaus |
 | 14.4.    | 1 | Checkstyle käyttöön, kalojen värit |
 | 14.4.    | 1 | Karit, pistelaskuri |
+| 16.4.    | 2 | Luokkakaavio, testipohdintaa |
 | yhteensä | 15 |  |

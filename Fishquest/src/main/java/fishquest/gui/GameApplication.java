@@ -57,7 +57,7 @@ public class GameApplication extends Application {
         
         List<Rock> listOfRocks = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Rock rock = new Rock(random.nextInt(WIDTH), random.nextInt(HEIGHT));
+            Rock rock = new Rock(random.nextInt(WIDTH-10), random.nextInt(HEIGHT-10));
             if (!rock.collidesWith(boat)) {
                 listOfRocks.add(rock);
             }

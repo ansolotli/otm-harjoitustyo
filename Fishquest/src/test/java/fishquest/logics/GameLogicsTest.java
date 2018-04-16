@@ -19,18 +19,15 @@ public class GameLogicsTest {
     }
     
     @Test
-    public void twoThingsAtSamePlaceCollide() {
+    public void twoShapesAtTheSamePlaceCollide() {
         assertTrue(boat.collidesWith(fish));
     }
     
     @Test
-    public void twoThingsFarApartDontCollide() {
+    public void twoShapesFarApartDontCollide() {
         boat = new Boat(500, 500);
         assertFalse(boat.collidesWith(fish));
     }
     
-    @Test
-    public void runningIntoRockStopsGame() {
-        
-    }
+    //liikkuva ja liikkumaton hahmo; aluks ei törmää, lopulta törmää
 }
