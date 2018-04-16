@@ -5,7 +5,8 @@ Asteroids-tyyppinen kalapeli FishQuest, joka on toteutettu harjoitustyönä kurs
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/vaatimusmaarittely.md)  
-[Tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/tuntikirjanpito.md)
+[Tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/tuntikirjanpito.md)  
+[Arkkitehtuurikuvaus](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/arkkitehtuuri.md)
 
 ## Komentorivitoiminnot
 
