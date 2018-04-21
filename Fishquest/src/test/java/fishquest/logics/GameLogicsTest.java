@@ -29,5 +29,10 @@ public class GameLogicsTest {
         assertFalse(boat.collidesWith(fish));
     }
     
-    //liikkuva ja liikkumaton hahmo; aluks ei törmää, lopulta törmää
+    @Test
+    public void shapeCollidesWithOthersAfterMovingToTheSamePlace() {
+        boat = new Boat(35, 5);
+        fish.move();
+        assertTrue(fish.collidesWith(boat));
+    }
 }

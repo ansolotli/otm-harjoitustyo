@@ -1,5 +1,7 @@
 package fishquest.gui;
 
+import fishquest.dao.Database;
+import fishquest.dao.ScoreDao;
 import fishquest.logics.Boat;
 import fishquest.logics.Fish;
 import fishquest.logics.Rock;
@@ -22,8 +24,11 @@ import javafx.stage.Stage;
 public class GameApplication extends Application {
 
     @Override
-    public void init() {
-        //tänne tietokannan alustus, daot yms.
+    public void init() throws Exception {
+        Database database = new Database("jdbc:sqlite:scores.db");
+        database.init();
+
+        ScoreDao scoreDao = new ScoreDao(database);
     }
 
     public static int WIDTH = 800;
