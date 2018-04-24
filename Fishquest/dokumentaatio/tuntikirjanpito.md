@@ -15,4 +15,5 @@
 | 14.4.    | 1 | Karit, pistelaskuri |
 | 16.4.    | 2 | Luokkakaavio, testipohdintaa |
 | 21.4.    | 2 | Testaus, tietokannan aloitus |
-| yhteensä | 19 |  |
+| 24.4.    | 3 | Tietokantakokeiluja |
+| yhteensä | 22 |  |
