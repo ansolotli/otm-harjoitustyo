@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScoreDao {
     
@@ -23,7 +25,7 @@ public class ScoreDao {
         }
 
         try (Connection conn = database.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO Score (name) VALUES (?)");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO HighScore (name) VALUES (?)");
             stmt.setString(1, object.getName());
             stmt.executeUpdate();
         }
@@ -33,14 +35,34 @@ public class ScoreDao {
     
     private Score findByName(String name) throws SQLException {
         try (Connection conn = database.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement("SELECT id, nimi FROM RaakaAine WHERE nimi = ?");
+            PreparedStatement stmt = conn.prepareStatement("SELECT id, name, points FROM HighScore WHERE name = ?");
             stmt.setString(1, name);
 
             ResultSet result = stmt.executeQuery();
             if (!result.next()) {
                 return null;
             }
-            return new Aines(result.getInt("id"), result.getString("nimi"));
+            return new Score(result.getInt("id"), result.getString("name"), result.getInt("points"));
         }
+    }
+    
+    public List<Score.ScoreStats> displayHighScore() throws SQLException{
+        Connection conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT name, points FROM HighScore ORDER BY points");
+
+        ResultSet rs = stmt.executeQuery();
+        List<Score.ScoreStats> stats = new ArrayList<>();
+        while (rs.next()) {
+            String name = rs.getString("name");
+            Integer points = rs.getInt("points");
+           
+            stats.add(new Score.ScoreStats(name, points));
+        }
+
+        rs.close();
+        stmt.close();
+        conn.close();
+
+        return stats;
     }
 }

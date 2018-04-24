@@ -12,7 +12,7 @@ public class Database {
     
     private final String databaseAddress;
 
-    public Database(String databaseAddress) throws ClassNotFoundException {
+    public Database(String databaseAddress) throws Exception {
         this.databaseAddress = databaseAddress;
     }
 
@@ -39,7 +39,7 @@ public class Database {
     private List<String> sqliteCommands() {
         ArrayList<String> list = new ArrayList<>();
 
-        list.add("CREATE TABLE Score (id integer PRIMARY KEY, name varchar(3), points integer)");
+        list.add("CREATE TABLE IF NOT EXISTS HighScore (id integer PRIMARY KEY, name varchar(3), points integer)");
         
         return list;
     }

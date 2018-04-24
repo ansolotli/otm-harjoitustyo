@@ -149,6 +149,12 @@ public class GameApplication extends Application {
 
     @Override
     public void stop() {
+        //kysy käyttäjältä nimi
+        //luo nimellä Score-olio
+        //scoreDao.saveOrUpdate(score-olio); tms.
+        
+        //scoreDao.displayHighScore();
+        
         //tietokannan tallennus
         //ohjelman sulkeminen
     }

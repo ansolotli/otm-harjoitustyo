@@ -17,7 +17,7 @@ public class Fish extends MovingShape {
         this.alive = true;
     }
     
-    public Color generateRandomColor() {
+    private Color generateRandomColor() {
         Random random = new Random();
         int r = random.nextInt(255);
         int g = random.nextInt(255);

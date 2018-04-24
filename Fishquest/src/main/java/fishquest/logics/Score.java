@@ -35,4 +35,22 @@ public class Score {
     public void setPoints(Integer points) {
         this.points = points;
     }
+    
+    public static class ScoreStats {
+        private String name;
+        private Integer points;
+
+        public ScoreStats(String name, Integer points) {
+            this.name = name;
+            this.points = points;
+        }
+
+        public String getName() {
+            return name;
+        }
+        
+        public Integer getPoints() {
+            return points;
+        }
+    }
 }
