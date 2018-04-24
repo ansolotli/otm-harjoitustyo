@@ -16,4 +16,5 @@
 | 16.4.    | 2 | Luokkakaavio, testipohdintaa |
 | 21.4.    | 2 | Testaus, tietokannan aloitus |
 | 24.4.    | 3 | Tietokantakokeiluja |
-| yhteensä | 22 |  |
+| 24.4.    | 1 | Sekvenssikaaviojuttuja |
+| yhteensä | 23 |  |
