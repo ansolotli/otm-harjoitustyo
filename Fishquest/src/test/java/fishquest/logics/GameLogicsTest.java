@@ -35,4 +35,16 @@ public class GameLogicsTest {
         fish.move();
         assertTrue(fish.collidesWith(boat));
     }
+    
+    @Test
+    public void fishIsAliveBeforeCollidingWithBoat() {
+        boat = new Boat(50, 5);
+        assertTrue(fish.isAlive());
+    }
+    
+    @Test
+    public void fishDiesWhenCollidingWithBoat() {
+        fish.setAlive(false);
+        assertFalse(fish.isAlive());
+    }
 }
