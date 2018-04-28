@@ -18,4 +18,5 @@
 | 24.4.    | 3 | Tietokantakokeiluja |
 | 24.4.    | 1 | Sekvenssikaaviojuttuja |
 | 28.4.    | 2 | Tietokannan ja daon muokkaus ja testaus |
-| yhteensä | 25 |  |
+| 28.4.    | 2 | Aloitus- ja huippupistenäkymien luominen, käyttöliittymäsäätöä |
+| yhteensä | 27 |  |

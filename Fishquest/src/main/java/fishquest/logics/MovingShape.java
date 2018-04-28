@@ -20,19 +20,19 @@ public abstract class MovingShape extends AnyShape {
         shape.setTranslateY(shape.getTranslateY() + this.motion.getY());
         
         if (this.shape.getTranslateX() < 0) {
-            this.shape.setTranslateX(this.shape.getTranslateX() + GameApplication.WIDTH);
+            this.shape.setTranslateX(this.shape.getTranslateX() + GameApplication.gameWIDTH);
         }
 
-        if (this.shape.getTranslateX() > GameApplication.WIDTH) {
-            this.shape.setTranslateX(this.shape.getTranslateX() % GameApplication.WIDTH);
+        if (this.shape.getTranslateX() > GameApplication.gameWIDTH) {
+            this.shape.setTranslateX(this.shape.getTranslateX() % GameApplication.gameWIDTH);
         }
 
         if (this.shape.getTranslateY() < 0) {
-            this.shape.setTranslateY(this.shape.getTranslateY() + GameApplication.HEIGHT);
+            this.shape.setTranslateY(this.shape.getTranslateY() + GameApplication.gameHEIGHT);
         }
 
-        if (this.shape.getTranslateY() > GameApplication.HEIGHT) {
-            this.shape.setTranslateY(this.shape.getTranslateY() % GameApplication.HEIGHT);
+        if (this.shape.getTranslateY() > GameApplication.gameHEIGHT) {
+            this.shape.setTranslateY(this.shape.getTranslateY() % GameApplication.gameHEIGHT);
         }
     }
 }
