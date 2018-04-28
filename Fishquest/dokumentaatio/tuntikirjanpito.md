@@ -17,4 +17,5 @@
 | 21.4.    | 2 | Testaus, tietokannan aloitus |
 | 24.4.    | 3 | Tietokantakokeiluja |
 | 24.4.    | 1 | Sekvenssikaaviojuttuja |
-| yhteensä | 23 |  |
+| 28.4.    | 2 | Tietokannan ja daon muokkaus ja testaus |
+| yhteensä | 25 |  |

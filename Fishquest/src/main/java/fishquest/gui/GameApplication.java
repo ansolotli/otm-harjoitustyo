@@ -53,7 +53,7 @@ public class GameApplication extends Application {
         layout.getChildren().add(boat.getShape());
 
         List<Fish> listOfFish = new ArrayList<>();
-        for (int i = 0; i < 10; i++) { //10 kalaa testimäärä
+        for (int i = 0; i < 10; i++) {
             Fish fish = new Fish(random.nextInt(WIDTH / 3), random.nextInt(HEIGHT));
             listOfFish.add(fish);
         }
@@ -151,7 +151,7 @@ public class GameApplication extends Application {
     public void stop() {
         //kysy käyttäjältä nimi
         //luo nimellä Score-olio
-        //scoreDao.saveOrUpdate(score-olio); tms.
+        //scoreDao.save(score-olio); tms.
         
         //scoreDao.displayHighScore();
         

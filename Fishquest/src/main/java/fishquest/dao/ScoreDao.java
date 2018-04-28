@@ -1,4 +1,3 @@
-
 package fishquest.dao;
 
 import fishquest.logics.Score;
@@ -10,52 +9,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScoreDao {
-    
+
     private final Database database;
 
     public ScoreDao(Database database) {
         this.database = database;
     }
-    
-    public Score saveOrUpdate(Score object) throws SQLException {
-        Score byName = findByName(object.getName());
 
-        if (byName != null) {
-            return byName;
-        }
-
-        try (Connection conn = database.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO HighScore (name) VALUES (?)");
-            stmt.setString(1, object.getName());
-            stmt.executeUpdate();
-        }
-
-        return findByName(object.getName());
-    }
-    
-    private Score findByName(String name) throws SQLException {
-        try (Connection conn = database.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement("SELECT id, name, points FROM HighScore WHERE name = ?");
-            stmt.setString(1, name);
-
-            ResultSet result = stmt.executeQuery();
-            if (!result.next()) {
-                return null;
-            }
-            return new Score(result.getInt("id"), result.getString("name"), result.getInt("points"));
-        }
-    }
-    
-    public List<Score.ScoreStats> displayHighScore() throws SQLException{
+    public Score save(Score score) throws SQLException {
         Connection conn = database.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT name, points FROM HighScore ORDER BY points");
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO HighScore (name, points) VALUES (?, ?)");
+        stmt.setString(1, score.getName());
+        stmt.setInt(2, score.getPoints());
+        
+        stmt.executeUpdate();
+        stmt.close();
+
+        stmt = conn.prepareStatement("SELECT * FROM HighScore WHERE name = ? AND points = ?");
+        stmt.setString(1, score.getName());
+        stmt.setInt(2, score.getPoints());
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        Score s = new Score(rs.getInt("id"), rs.getString("name"), rs.getInt("points"));
+
+        stmt.close();
+        rs.close();
+        conn.close();
+
+        return s;
+    }
+
+    public List<Score.ScoreStats> displayHighScoreByPoints() throws SQLException {
+        Connection conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT name, points FROM HighScore ORDER BY points DESC");
 
         ResultSet rs = stmt.executeQuery();
         List<Score.ScoreStats> stats = new ArrayList<>();
         while (rs.next()) {
             String name = rs.getString("name");
             Integer points = rs.getInt("points");
-           
+
             stats.add(new Score.ScoreStats(name, points));
         }
 
