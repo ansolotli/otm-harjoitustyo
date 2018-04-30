@@ -39,23 +39,21 @@ public class ScoreDao {
         return s;
     }
 
-    public List<Score.ScoreStats> displayHighScoreByPoints() throws SQLException {
+    public List<Score> displayHighScoreByPoints() throws SQLException {
+        List<Score> highScoreList = new ArrayList<>();
+        
         Connection conn = database.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT name, points FROM HighScore ORDER BY points DESC");
+        PreparedStatement stmt = conn.prepareStatement("SELECT id, name, points FROM HighScore ORDER BY points DESC");
 
         ResultSet rs = stmt.executeQuery();
-        List<Score.ScoreStats> stats = new ArrayList<>();
         while (rs.next()) {
-            String name = rs.getString("name");
-            Integer points = rs.getInt("points");
-
-            stats.add(new Score.ScoreStats(name, points));
+            highScoreList.add(new Score(rs.getInt("id"), rs.getString("name"), rs.getInt("points")));
         }
 
         rs.close();
         stmt.close();
         conn.close();
 
-        return stats;
+        return highScoreList;
     }
 }

@@ -5,31 +5,25 @@ import fishquest.dao.ScoreDao;
 import fishquest.logics.Boat;
 import fishquest.logics.Fish;
 import fishquest.logics.Rock;
-import java.util.ArrayList;
+import fishquest.logics.Score;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GameApplication extends Application {
+    
+    //vene + ekat kalat ei liiku
+    //animationtimer käynnistyy ilmeisesti jo ekan scenen aikana
+    //pelinäkymä pitää nollata, kun peli päättyy
+    //aloitusnäkymässä Enterin painaminen ei aloita peliä
+    //Peliruutu liian sivussa
 
     ScoreDao scoreDao;
 
@@ -43,99 +37,39 @@ public class GameApplication extends Application {
 
     public static int gameWIDTH = 800;
     public static int gameHEIGHT = 400;
+    
+    Scene startView;
+    Scene scoreView;
+    Scene gameView;
 
     Random random = new Random();
+    
+    String playersName;
+    int points = 0;
+    
+    Boat boat;
+    List<Fish> listOfFish;
+    List<Rock> listOfRocks;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("FishQuest");
-
-        //StartView
-        Text gameText = new Text("FISHQUEST");
-        Label nameText = new Label("Enter your intials:");
-        TextField nameField = new TextField();
-
-        Button startButton = new Button("Start");
-
-        GridPane startLayout = new GridPane();
-
-        startLayout.add(gameText, 2, 0);
-        startLayout.add(nameText, 2, 2);
-        startLayout.add(nameField, 2, 3);
-        startLayout.add(startButton, 2, 5);
-
-        startLayout.setHgap(10);
-        startLayout.setVgap(10);
-        startLayout.setPadding(new Insets(10, 10, 10, 10));
-
-        Scene startView = new Scene(startLayout);
-
+        
+        StartViewCreator startViewCreator = new StartViewCreator();
+        startView = startViewCreator.createStartView();
+        
+        ScoreViewCreator scoreViewCreator = new ScoreViewCreator(scoreDao);
+        scoreView = scoreViewCreator.createScoreView();
+        
+        GameViewCreator gameViewCreator = new GameViewCreator();
+        gameView = gameViewCreator.createGameView();
+        
+        boat = gameViewCreator.getBoat();
+        listOfFish = gameViewCreator.getFish();
+        listOfRocks = gameViewCreator.getRocks();
+        
         primaryStage.setScene(startView);
 
-        String playersName = nameField.getText();
-
-        //GameView
-        Pane gameLayout = new Pane();
-        gameLayout.setPrefSize(gameWIDTH, gameHEIGHT);
-
-        Text pointCounter = new Text(15, 30, "Points: 0");
-        pointCounter.setFont(new Font(20));
-        gameLayout.getChildren().add(pointCounter);
-        AtomicInteger points = new AtomicInteger();
-
-        Scene gameView = new Scene(gameLayout);
-
-        Boat boat = new Boat(gameWIDTH / 2, gameHEIGHT / 2);
-        gameLayout.getChildren().add(boat.getShape());
-
-        List<Fish> listOfFish = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Fish fish = new Fish(random.nextInt(gameWIDTH / 3), random.nextInt(gameHEIGHT));
-            listOfFish.add(fish);
-        }
-
-        listOfFish.forEach(fish -> gameLayout.getChildren().add(fish.getShape()));
-
-        List<Rock> listOfRocks = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Rock rock = new Rock(random.nextInt(gameWIDTH - 10), random.nextInt(gameHEIGHT - 10));
-            if (!rock.collidesWith(boat)) {
-                listOfRocks.add(rock);
-            }
-        }
-        listOfRocks.forEach(rock -> gameLayout.getChildren().add(rock.getShape()));
-
-        //ScoreView
-        Text scoreText = new Text("HIGHSCORE");
-
-        Button newGameButton = new Button("New game");
-        Button changePlayerButton = new Button("Change player");
-
-        ListView<String> highScoreList = new ListView<String>();
-        ObservableList<String> list = FXCollections.observableArrayList();
-
-        scoreDao.displayHighScoreByPoints().stream().forEach(s -> {
-            list.add(s.toString());
-            highScoreList.setItems(list);
-        });
-        //EI TOIMI!
-
-        GridPane scoreLayout = new GridPane();
-
-        scoreLayout.add(scoreText, 2, 0);
-        scoreLayout.add(highScoreList, 2, 2);
-        scoreLayout.add(newGameButton, 2, 4);
-        scoreLayout.add(changePlayerButton, 2, 6);
-
-        scoreLayout.setHgap(10);
-        scoreLayout.setVgap(10);
-        scoreLayout.setPadding(new Insets(10, 10, 10, 10));
-
-        Scene scoreView = new Scene(scoreLayout);
-
-        
-        
-        
         Map<KeyCode, Boolean> keysPressed = new HashMap<>();
 
         gameView.setOnKeyPressed(e -> {
@@ -176,15 +110,16 @@ public class GameApplication extends Application {
                 listOfFish.forEach(fish -> {
                     if (boat.collidesWith(fish)) {
                         fish.setAlive(false);
+                        points++;
                     }
                     if (!fish.isAlive()) {
-                        pointCounter.setText("Points: " + points.incrementAndGet());
+                        gameViewCreator.setPointCounterText(points);
                     }
                 });
 
                 listOfFish.stream()
                         .filter(fish -> !fish.isAlive())
-                        .forEach(fish -> gameLayout.getChildren().remove(fish.getShape()));
+                        .forEach(fish -> gameViewCreator.removeFish(fish));
                 listOfFish.removeAll(listOfFish.stream()
                         .filter(fish -> !fish.isAlive())
                         .collect(Collectors.toList())
@@ -192,8 +127,21 @@ public class GameApplication extends Application {
 
                 listOfRocks.forEach(rock -> {
                     if (boat.collidesWith(rock)) {
-                        //save score
-                        //stop();
+                        playersName = startViewCreator.getPlayersName();
+                        Score score = new Score(-1, playersName, points);
+                        
+                        try {
+                            if(points != 0){
+                                scoreDao.save(score);
+                            }
+                        } catch(Exception e){
+                            System.out.println("Something went wrong while saving");
+                        }
+                        
+                        stop();
+                        //nollaa peli
+                        scoreView = scoreViewCreator.createScoreView();
+                        primaryStage.setScene(scoreView);
                     }
                 });
 
@@ -201,7 +149,7 @@ public class GameApplication extends Application {
                     Fish fish = new Fish(random.nextInt(gameWIDTH / 4), random.nextInt(gameHEIGHT));
                     if (!fish.collidesWith(boat)) {
                         listOfFish.add(fish);
-                        gameLayout.getChildren().add(fish.getShape());
+                        gameViewCreator.addFish(fish);
                     }
                 }
             }
@@ -211,21 +159,24 @@ public class GameApplication extends Application {
 //            e.consume();
 //            stop();
 //        });
-        startButton.setOnAction((event) -> {
+        startViewCreator.getStartButton().setOnAction((event) -> {
+            gameView = gameViewCreator.createGameView();
             primaryStage.setScene(gameView);
         });
 
-        newGameButton.setOnAction((event) -> {
+        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
+            gameView = gameViewCreator.createGameView();
             primaryStage.setScene(gameView);
         });
 
-        changePlayerButton.setOnAction((event) -> {
+        scoreViewCreator.getChangePlayerButton().setOnAction((event) -> {
+            startView = startViewCreator.createStartView();
             primaryStage.setScene(startView);
         });
 
         primaryStage.show();
     }
-
+    
     @Override
     public void stop() {
         //tietokannan tallennus

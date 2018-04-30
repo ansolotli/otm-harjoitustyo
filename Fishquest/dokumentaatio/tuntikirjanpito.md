@@ -19,4 +19,5 @@
 | 24.4.    | 1 | Sekvenssikaaviojuttuja |
 | 28.4.    | 2 | Tietokannan ja daon muokkaus ja testaus |
 | 28.4.    | 2 | Aloitus- ja huippupistenäkymien luominen, käyttöliittymäsäätöä |
-| yhteensä | 27 |  |
+| 30.4.    | 3 | Eri näkymien eriyttäminen luokkiin |
+| yhteensä | 30 |  |
