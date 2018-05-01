@@ -20,4 +20,5 @@
 | 28.4.    | 2 | Tietokannan ja daon muokkaus ja testaus |
 | 28.4.    | 2 | Aloitus- ja huippupistenäkymien luominen, käyttöliittymäsäätöä |
 | 30.4.    | 3 | Eri näkymien eriyttäminen luokkiin |
-| yhteensä | 30 |  |
+| 1.5.     | 1 | Eriyttämisestä johtuvien ongelmien korjausta |
+| yhteensä | 31 |  |

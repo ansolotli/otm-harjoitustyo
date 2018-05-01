@@ -6,7 +6,6 @@ import fishquest.logics.Boat;
 import fishquest.logics.Fish;
 import fishquest.logics.Rock;
 import fishquest.logics.Score;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -18,13 +17,11 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 public class GameApplication extends Application {
-    
-    //vene + ekat kalat ei liiku
-    //animationtimer käynnistyy ilmeisesti jo ekan scenen aikana
+
     //pelinäkymä pitää nollata, kun peli päättyy
     //aloitusnäkymässä Enterin painaminen ei aloita peliä
     //Peliruutu liian sivussa
-
+    
     ScoreDao scoreDao;
 
     @Override
@@ -37,47 +34,42 @@ public class GameApplication extends Application {
 
     public static int gameWIDTH = 800;
     public static int gameHEIGHT = 400;
-    
+
     Scene startView;
     Scene scoreView;
     Scene gameView;
 
     Random random = new Random();
-    
+
     String playersName;
     int points = 0;
-    
+
     Boat boat;
     List<Fish> listOfFish;
     List<Rock> listOfRocks;
 
+    Map<KeyCode, Boolean> keysPressed;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("FishQuest");
-        
+
         StartViewCreator startViewCreator = new StartViewCreator();
         startView = startViewCreator.createStartView();
-        
+
         ScoreViewCreator scoreViewCreator = new ScoreViewCreator(scoreDao);
         scoreView = scoreViewCreator.createScoreView();
-        
+
         GameViewCreator gameViewCreator = new GameViewCreator();
         gameView = gameViewCreator.createGameView();
-        
+
         boat = gameViewCreator.getBoat();
         listOfFish = gameViewCreator.getFish();
         listOfRocks = gameViewCreator.getRocks();
-        
+
+        keysPressed = gameViewCreator.getKeysPressed();
+
         primaryStage.setScene(startView);
-
-        Map<KeyCode, Boolean> keysPressed = new HashMap<>();
-
-        gameView.setOnKeyPressed(e -> {
-            keysPressed.put(e.getCode(), Boolean.TRUE);
-        });
-        gameView.setOnKeyReleased(e -> {
-            keysPressed.put(e.getCode(), Boolean.FALSE);
-        });
 
         new AnimationTimer() {
 
@@ -129,17 +121,18 @@ public class GameApplication extends Application {
                     if (boat.collidesWith(rock)) {
                         playersName = startViewCreator.getPlayersName();
                         Score score = new Score(-1, playersName, points);
-                        
+
                         try {
-                            if(points != 0){
+                            if (points != 0) {
                                 scoreDao.save(score);
                             }
-                        } catch(Exception e){
+                        } catch (Exception e) {
                             System.out.println("Something went wrong while saving");
                         }
-                        
+
                         stop();
-                        //nollaa peli
+
+                        points = 0;
                         scoreView = scoreViewCreator.createScoreView();
                         primaryStage.setScene(scoreView);
                     }
@@ -160,23 +153,39 @@ public class GameApplication extends Application {
 //            stop();
 //        });
         startViewCreator.getStartButton().setOnAction((event) -> {
+
             gameView = gameViewCreator.createGameView();
+            boat = gameViewCreator.getBoat();
+            listOfFish = gameViewCreator.getFish();
+            listOfRocks = gameViewCreator.getRocks();
+
+            keysPressed = gameViewCreator.getKeysPressed();
+
             primaryStage.setScene(gameView);
         });
 
         scoreViewCreator.getNewGameButton().setOnAction((event) -> {
+            
             gameView = gameViewCreator.createGameView();
+            boat = gameViewCreator.getBoat();
+            listOfFish = gameViewCreator.getFish();
+            listOfRocks = gameViewCreator.getRocks();
+
+            keysPressed = gameViewCreator.getKeysPressed();
+
             primaryStage.setScene(gameView);
         });
 
         scoreViewCreator.getChangePlayerButton().setOnAction((event) -> {
+            
             startView = startViewCreator.createStartView();
+            
             primaryStage.setScene(startView);
         });
 
         primaryStage.show();
     }
-    
+
     @Override
     public void stop() {
         //tietokannan tallennus

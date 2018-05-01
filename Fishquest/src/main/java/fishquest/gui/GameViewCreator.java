@@ -7,9 +7,12 @@ import fishquest.logics.Boat;
 import fishquest.logics.Fish;
 import fishquest.logics.Rock;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -23,6 +26,8 @@ public class GameViewCreator {
     List<Fish> listOfFish;
     List<Rock> listOfRocks;
     Text pointCounter;
+    
+    Map<KeyCode, Boolean> keysPressed;
     
     public GameViewCreator() {
         this.random = new Random();
@@ -56,7 +61,17 @@ public class GameViewCreator {
         }
         listOfRocks.forEach(rock -> gameLayout.getChildren().add(rock.getShape()));
         
+        keysPressed = new HashMap<>();
+        
         Scene gameView = new Scene(gameLayout);
+        
+        gameView.setOnKeyPressed(e -> {
+            keysPressed.put(e.getCode(), Boolean.TRUE);
+        });
+        gameView.setOnKeyReleased(e -> {
+            keysPressed.put(e.getCode(), Boolean.FALSE);
+        });
+        
         return gameView;
     }
     
@@ -82,5 +97,9 @@ public class GameViewCreator {
     
     public void addFish(Fish fish) {
         gameLayout.getChildren().add(fish.getShape());
+    }
+    
+    public Map<KeyCode, Boolean> getKeysPressed() {
+        return this.keysPressed;
     }
 }
