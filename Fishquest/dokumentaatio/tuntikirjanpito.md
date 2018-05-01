@@ -21,4 +21,5 @@
 | 28.4.    | 2 | Aloitus- ja huippupistenäkymien luominen, käyttöliittymäsäätöä |
 | 30.4.    | 3 | Eri näkymien eriyttäminen luokkiin |
 | 1.5.     | 1 | Eriyttämisestä johtuvien ongelmien korjausta |
-| yhteensä | 31 |  |
+| 1.5.     | 2 | Arkkitehtuuridokumentti |
+| yhteensä | 33 |  |
