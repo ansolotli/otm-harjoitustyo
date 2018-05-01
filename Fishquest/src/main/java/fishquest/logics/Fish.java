@@ -7,14 +7,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 /**
- * Class creates fish shapes.
+ * Class extends MovingShape and creates fish.
  */
 public class Fish extends MovingShape {
     
     protected boolean alive;
 
     /**
-     * Constructor gets
      * @param x
      * @param y 
      * 
@@ -50,7 +49,7 @@ public class Fish extends MovingShape {
     
     /**
      * Method sets status of boolean alive
-     * @param status - true or false depending on whether a fish has died or not
+     * @param status - true or false depending on whether or not a fish has died in the game application
      */
     public void setAlive(boolean status) {
         this.alive = status;

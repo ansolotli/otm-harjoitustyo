@@ -12,12 +12,23 @@ public abstract class MovingShape extends AnyShape {
     
     protected Point2D motion;
     
+    /**
+     * 
+     * @param polygon
+     * @param x
+     * @param y 
+     * 
+     * Point2D shittii
+     */
     public MovingShape(Polygon polygon, int x, int y) {
         super(polygon, x, y);
         
         this.motion = new Point2D(0, 0);
     }
     
+    /**
+     * Method jotain
+     */
     public void move() { //tsekkaa rajojen ylitys
         shape.setTranslateX(shape.getTranslateX() + this.motion.getX());
         shape.setTranslateY(shape.getTranslateY() + this.motion.getY());

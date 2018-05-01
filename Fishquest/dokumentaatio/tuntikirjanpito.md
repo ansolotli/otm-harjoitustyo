@@ -22,4 +22,5 @@
 | 30.4.    | 3 | Eri näkymien eriyttäminen luokkiin |
 | 1.5.     | 1 | Eriyttämisestä johtuvien ongelmien korjausta |
 | 1.5.     | 2 | Arkkitehtuuridokumentti |
-| yhteensä | 33 |  |
+| 1.5.     | 1 | Javadoc aloitettu |
+| yhteensä | 34 |  |

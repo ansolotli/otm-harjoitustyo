@@ -10,7 +10,6 @@ public class Score {
     private final Integer points;
 
     /**
-     * Constructor blabla
      * @param id - identifier of a specific score object
      * @param name - name given by the player
      * @param points - number of points a player scored in a game
