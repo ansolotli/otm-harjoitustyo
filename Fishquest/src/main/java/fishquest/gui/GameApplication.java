@@ -21,6 +21,9 @@ public class GameApplication extends Application {
     //pelinäkymä pitää nollata, kun peli päättyy
     //aloitusnäkymässä Enterin painaminen ei aloita peliä
     //Peliruutu liian sivussa
+    //pistelaskurissa jotain häikkää
+    //scoreviewn napit ei toimi :(
+    //nimen rajaaminen kolmeen kirjaimeen?
     
     ScoreDao scoreDao;
 
@@ -166,20 +169,19 @@ public class GameApplication extends Application {
 
         scoreViewCreator.getNewGameButton().setOnAction((event) -> {
             
-            gameView = gameViewCreator.createGameView();
-            boat = gameViewCreator.getBoat();
-            listOfFish = gameViewCreator.getFish();
-            listOfRocks = gameViewCreator.getRocks();
-
-            keysPressed = gameViewCreator.getKeysPressed();
+//            gameView = gameViewCreator.createGameView();
+//            boat = gameViewCreator.getBoat();
+//            listOfFish = gameViewCreator.getFish();
+//            listOfRocks = gameViewCreator.getRocks();
+//
+//            keysPressed = gameViewCreator.getKeysPressed();
 
             primaryStage.setScene(gameView);
         });
 
         scoreViewCreator.getChangePlayerButton().setOnAction((event) -> {
             
-            startView = startViewCreator.createStartView();
-            
+//            startView = startViewCreator.createStartView();
             primaryStage.setScene(startView);
         });
 

@@ -8,14 +8,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class offers methods to connect the game application to an SQL database
+ */
 public class ScoreDao {
 
     private final Database database;
 
+    /**
+     * 
+     * @param database - a specific database used in the application
+     */
     public ScoreDao(Database database) {
         this.database = database;
     }
 
+    /**
+     * Method saves a score obect into a database table
+     * @param score - an object to be saved
+     * @return
+     * @throws SQLException 
+     */
     public Score save(Score score) throws SQLException {
         Connection conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO HighScore (name, points) VALUES (?, ?)");
@@ -39,6 +52,11 @@ public class ScoreDao {
         return s;
     }
 
+    /**
+     * Method does something
+     * @return a list of score objects saved to the database in descending order by points
+     * @throws SQLException 
+     */
     public List<Score> displayHighScoreByPoints() throws SQLException {
         List<Score> highScoreList = new ArrayList<>();
         

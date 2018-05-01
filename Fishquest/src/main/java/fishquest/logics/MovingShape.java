@@ -5,6 +5,9 @@ import fishquest.gui.GameApplication;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Polygon;
 
+/**
+ * Interface extends AnyShape and creates Polygon shapes that are moving.
+ */
 public abstract class MovingShape extends AnyShape {
     
     protected Point2D motion;
