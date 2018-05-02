@@ -21,8 +21,7 @@ public class GameApplication extends Application {
     //aloitusnäkymässä Enterin painaminen ei aloita peliä
     //Peliruutu liian sivussa
     //pistelaskurissa jotain häikkää
-    //scoreviewn napit ei toimi :(
-    //nimen rajaaminen kolmeen kirjaimeen?
+    //lopetusnappi
     
     ScoreDao scoreDao;
 

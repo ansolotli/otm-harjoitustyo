@@ -29,10 +29,6 @@ public class Fish extends MovingShape {
         this.alive = true;
     }
     
-    /**
-     * Method generates a colour based on random values for red, green and blue.
-     * @return Color
-     */
     private Color generateRandomColor() {
         Random random = new Random();
         int r = random.nextInt(255);
