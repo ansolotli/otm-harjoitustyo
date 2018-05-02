@@ -23,4 +23,5 @@
 | 1.5.     | 1 | Eriyttämisestä johtuvien ongelmien korjausta |
 | 1.5.     | 2 | Arkkitehtuuridokumentti |
 | 1.5.     | 1 | Javadoc aloitettu |
-| yhteensä | 34 |  |
+| 2.5.     | 1 | Javadoc, käyttöliittymän debuggausta |
+| yhteensä | 35 |  |

@@ -17,8 +17,8 @@ import javafx.scene.text.Text;
 public class ScoreViewCreator {
     
     ScoreDao dao;
-    Button newGameButton;
-    Button changePlayerButton;
+//    Button newGameButton;
+//    Button newPlayerButton;
     
     public ScoreViewCreator(ScoreDao dao) {
         this.dao = dao;
@@ -27,8 +27,8 @@ public class ScoreViewCreator {
     public Scene createScoreView() {
         Text scoreText = new Text("HIGHSCORE");
 
-        newGameButton = new Button("New game");
-        changePlayerButton = new Button("Change player");
+//        newGameButton = new Button("New game");
+//        newPlayerButton = new Button("New player");
 
         ListView<String> highScoreList = new ListView<>();
         ObservableList<String> list = FXCollections.observableArrayList();
@@ -42,8 +42,8 @@ public class ScoreViewCreator {
 
         scoreLayout.add(scoreText, 0, 0);
         scoreLayout.add(highScoreList, 0, 2);
-        scoreLayout.add(newGameButton, 0, 4);
-        scoreLayout.add(changePlayerButton, 0, 6);
+//        scoreLayout.add(newGameButton, 0, 4);
+//        scoreLayout.add(newPlayerButton, 0, 5);
 
         scoreLayout.setHgap(10);
         scoreLayout.setVgap(10);
@@ -65,11 +65,11 @@ public class ScoreViewCreator {
         return results;
     }
     
-    public Button getNewGameButton() {
-        return this.newGameButton;
-    }
-    
-    public Button getChangePlayerButton() {
-        return this.changePlayerButton;
-    }
+//    public Button getNewGameButton() {
+//        return this.newGameButton;
+//    }
+//    
+//    public Button getNewPlayerButton() {
+//        return this.newPlayerButton;
+//    }
 }

@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 public class GameApplication extends Application {
 
-    //pelinäkymä pitää nollata, kun peli päättyy
     //aloitusnäkymässä Enterin painaminen ei aloita peliä
     //Peliruutu liian sivussa
     //pistelaskurissa jotain häikkää
@@ -62,7 +61,7 @@ public class GameApplication extends Application {
 
         ScoreViewCreator scoreViewCreator = new ScoreViewCreator(scoreDao);
         scoreView = scoreViewCreator.createScoreView();
-
+        
         GameViewCreator gameViewCreator = new GameViewCreator();
         gameView = gameViewCreator.createGameView();
 
@@ -137,6 +136,7 @@ public class GameApplication extends Application {
 
                         points = 0;
                         scoreView = scoreViewCreator.createScoreView();
+
                         primaryStage.setScene(scoreView);
                     }
                 });
@@ -167,30 +167,29 @@ public class GameApplication extends Application {
             primaryStage.setScene(gameView);
         });
 
-        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
-            
+//        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
+//            
 //            gameView = gameViewCreator.createGameView();
 //            boat = gameViewCreator.getBoat();
 //            listOfFish = gameViewCreator.getFish();
 //            listOfRocks = gameViewCreator.getRocks();
 //
 //            keysPressed = gameViewCreator.getKeysPressed();
-
-            primaryStage.setScene(gameView);
-        });
-
-        scoreViewCreator.getChangePlayerButton().setOnAction((event) -> {
-            
+//
+//            primaryStage.setScene(gameView);
+//        });
+//
+//        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
+//            
 //            startView = startViewCreator.createStartView();
-            primaryStage.setScene(startView);
-        });
+//            primaryStage.setScene(startView);
+//        });
 
         primaryStage.show();
     }
 
     @Override
     public void stop() {
-        //tietokannan tallennus
         //ohjelman sulkeminen
     }
 

@@ -13,12 +13,13 @@ public abstract class MovingShape extends AnyShape {
     protected Point2D motion;
     
     /**
+     * Constructor gets parameters that extend AnyShape.
      * 
      * @param polygon
      * @param x
      * @param y 
      * 
-     * Point2D shittii
+     * MovingShape has a Point2D point with x and y coordinates that represents movement.
      */
     public MovingShape(Polygon polygon, int x, int y) {
         super(polygon, x, y);
@@ -27,7 +28,7 @@ public abstract class MovingShape extends AnyShape {
     }
     
     /**
-     * Method jotain
+     * Method moves shapes in the game by increasing the distance their coordinates are translated along the axes.
      */
     public void move() { //tsekkaa rajojen ylitys
         shape.setTranslateX(shape.getTranslateX() + this.motion.getX());

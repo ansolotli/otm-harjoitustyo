@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class offers methods to connect the game application to an SQL database
+ * Class operates as an interface between the application's Score objects and an SQL database.
  */
 public class ScoreDao {
 
     private final Database database;
 
     /**
-     * 
      * @param database - a specific database used in the application
      */
     public ScoreDao(Database database) {
@@ -24,9 +23,9 @@ public class ScoreDao {
     }
 
     /**
-     * Method saves a score obect into a database table
+     * Method saves a Score object into a database table HighScore.
      * @param score - an object to be saved
-     * @return
+     * @return a saved Score object
      * @throws SQLException 
      */
     public Score save(Score score) throws SQLException {
@@ -53,8 +52,8 @@ public class ScoreDao {
     }
 
     /**
-     * Method does something
-     * @return a list of score objects saved to the database in descending order by points
+     * Method displays all Scores saved to the database in descending order by points.
+     * @return a list of Score objects
      * @throws SQLException 
      */
     public List<Score> displayHighScoreByPoints() throws SQLException {

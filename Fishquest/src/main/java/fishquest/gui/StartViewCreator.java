@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 public class StartViewCreator {
+    
     TextField nameField;
     Button startButton;
     

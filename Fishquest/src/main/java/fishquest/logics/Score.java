@@ -2,7 +2,7 @@
 package fishquest.logics;
 
 /**
- * Class offers methods to get and set values of a Score object
+ * Class offers methods to get and set values of a Score object.
  */
 public class Score {
     private final Integer id;
