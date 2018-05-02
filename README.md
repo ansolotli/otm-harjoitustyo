@@ -4,13 +4,15 @@ Asteroids-tyyppinen kalapeli FishQuest, joka on toteutettu harjoitustyönä Hels
 
 ## Dokumentaatio
 
-[Vaatimusmäärittely](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/vaatimusmaarittely.md)  
-[Tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/tuntikirjanpito.md)  
-[Arkkitehtuurikuvaus](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/arkkitehtuuri.md)
+[Käyttöohje](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/kayttoohje.md)  
+[Vaatimusmäärittely](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/vaatimusmaarittely.md)    
+[Arkkitehtuurikuvaus](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/arkkitehtuuri.md)  
+[Tuntikirjanpito](https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
 
-[Viikko 5](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko5)
+[Viikko 5](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko5)  
+[Viikko 6](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko6)
 
 ## Komentorivitoiminnot
 
@@ -30,7 +32,7 @@ Kattavuusraporttia voi tarkastella avaamalla selaimessa tiedoston *target/site/j
 
 ### Suoritettavan jarin generointi
 
-Komento generoi hakemistoon target suoritettavan jar-tiedoston FishQuest-1.0-SNAPSHOT.jar.
+Komento generoi hakemistoon target suoritettavan jar-tiedoston *FishQuest-1.0-SNAPSHOT.jar*.
 
 ```
 mvn package
@@ -43,4 +45,14 @@ Tiedostoon checkstyle.xml määrittelemät tarkistukset suoritetaan komennolla:
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
-Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto target/site/checkstyle.html.
+Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto *target/site/checkstyle.html*.
+
+### JavaDoc
+
+JavaDoc generoidaan komennolla:  
+```
+mvn javadoc:javadoc
+```
+
+JavaDocia voi tarkastella avaamalla selaimessa tiedosto *target/site/apidocs/index.html*.
+
