@@ -1,6 +1,6 @@
 # Käyttöohje  
   
-Lataa tiedosto FishQuest.jar.
+Lataa tiedosto [FishQuest.jar](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko6)
 
 ## Ohjelman käynnistäminen  
 
