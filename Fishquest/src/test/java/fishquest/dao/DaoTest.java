@@ -1,11 +1,9 @@
 
 package fishquest.dao;
 
-import fishquest.logics.Score;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -39,8 +37,8 @@ public class DaoTest {
     
     @Test
     public void savingIsSuccessful() {
+        score = new Score(-1, "", 0);
         Score newScore = new Score(-1, "AKK", 10);
-        Score score = new Score(-1, "", 0);
         
         try {
             score = scoredao.save(newScore);
@@ -49,5 +47,10 @@ public class DaoTest {
         }
         
         assertEquals("AKK: 10", score.toString());
+    }
+    
+    @Test
+    public void highScoreListIsInCorrectOrder() {
+        
     }
 }    

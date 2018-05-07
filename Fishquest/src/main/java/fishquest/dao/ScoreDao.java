@@ -1,6 +1,5 @@
 package fishquest.dao;
 
-import fishquest.logics.Score;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

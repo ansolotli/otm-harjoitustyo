@@ -2,7 +2,7 @@
 package fishquest.gui;
 
 import fishquest.dao.ScoreDao;
-import fishquest.logics.Score;
+import fishquest.dao.Score;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -17,8 +17,10 @@ import javafx.scene.text.Text;
 public class ScoreViewCreator {
     
     ScoreDao dao;
-    Button newGameButton;
-    Button newPlayerButton;
+//    Button newGameButton;
+//    Button newPlayerButton;
+    
+    ListView<String> highScoreList;
     
     public ScoreViewCreator(ScoreDao dao) {
         this.dao = dao;
@@ -27,10 +29,10 @@ public class ScoreViewCreator {
     public Scene createScoreView() {
         Text scoreText = new Text("HIGHSCORE");
 
-        newGameButton = new Button("New game");
-        newPlayerButton = new Button("New player");
+//        newGameButton = new Button("New game");
+//        newPlayerButton = new Button("New player");
 
-        ListView<String> highScoreList = new ListView<>();
+        highScoreList = new ListView<>();
         ObservableList<String> list = FXCollections.observableArrayList();
 
         findHighScoreByPoints().stream().forEach(s -> { 
@@ -42,8 +44,8 @@ public class ScoreViewCreator {
 
         scoreLayout.add(scoreText, 0, 0);
         scoreLayout.add(highScoreList, 0, 2);
-        scoreLayout.add(newGameButton, 0, 4);
-        scoreLayout.add(newPlayerButton, 0, 5);
+//        scoreLayout.add(newGameButton, 0, 4);
+//        scoreLayout.add(newPlayerButton, 0, 5);
 
         scoreLayout.setHgap(10);
         scoreLayout.setVgap(10);
@@ -65,11 +67,11 @@ public class ScoreViewCreator {
         return results;
     }
     
-    public Button getNewGameButton() {
-        return this.newGameButton;
-    }
-    
-    public Button getNewPlayerButton() {
-        return this.newPlayerButton;
-    }
+//    public Button getNewGameButton() {
+//        return this.newGameButton;
+//    }
+//    
+//    public Button getNewPlayerButton() {
+//        return this.newPlayerButton;
+//    }
 }

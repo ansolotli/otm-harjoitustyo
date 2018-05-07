@@ -1,5 +1,5 @@
 
-package fishquest.logics;
+package fishquest.dao;
 
 /**
  * Class offers methods to get and set values of a Score object.

@@ -25,4 +25,5 @@
 | 1.5.     | 1 | Javadoc aloitettu |
 | 2.5.     | 2 | Javadoc, käyttöliittymän debuggausta, käyttöohje |
 | 7.5.     | 1 | Javadoc |
+| 7.5.     | 2 | Testaus, scorenäkymän säätöä |
 | yhteensä | 37 |  |

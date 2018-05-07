@@ -5,7 +5,7 @@ import fishquest.dao.ScoreDao;
 import fishquest.logics.Boat;
 import fishquest.logics.Fish;
 import fishquest.logics.Rock;
-import fishquest.logics.Score;
+import fishquest.dao.Score;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 public class GameApplication extends Application {
 
     //aloitusnäkymässä Enterin painaminen ei aloita peliä
-    //Peliruutu liian sivussa
-    //pistelaskurissa jotain häikkää
     //lopetusnappi
     
     ScoreDao scoreDao;
@@ -123,12 +121,12 @@ public class GameApplication extends Application {
                         } catch (Exception e) {
                             System.out.println("Something went wrong while saving: " + e.getMessage());
                         }
-
+                        
                         stop();
 
                         points = 0;
+                        
                         setUpScoreView();
-
                         primaryStage.setScene(scoreView);
                     }
                 });
@@ -149,33 +147,20 @@ public class GameApplication extends Application {
 //        });
         startViewCreator.getStartButton().setOnAction((event) -> {
 
-            gameView = gameViewCreator.createGameView();
-            boat = gameViewCreator.getBoat();
-            listOfFish = gameViewCreator.getFish();
-            listOfRocks = gameViewCreator.getRocks();
-
-            keysPressed = gameViewCreator.getKeysPressed();
-
+            setUpGameView();
             primaryStage.setScene(gameView);
         });
 
-        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
-            
-            gameView = gameViewCreator.createGameView();
-            boat = gameViewCreator.getBoat();
-            listOfFish = gameViewCreator.getFish();
-            listOfRocks = gameViewCreator.getRocks();
-
-            keysPressed = gameViewCreator.getKeysPressed();
-
-            primaryStage.setScene(gameView);
-        });
-
-        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
-            
-            startView = startViewCreator.createStartView();
-            primaryStage.setScene(startView);
-        });
+//        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
+//            setUpGameView();
+//            primaryStage.setScene(gameView);
+//        });
+//
+//        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
+//            
+//            setUpStartView();
+//            primaryStage.setScene(startView);
+//        });
 
         primaryStage.show();
     }
@@ -208,5 +193,16 @@ public class GameApplication extends Application {
     public void setUpScoreView() {
         scoreViewCreator = new ScoreViewCreator(scoreDao);
         scoreView = scoreViewCreator.createScoreView();
+        
+//        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
+//            setUpGameView();
+//            primaryStage.setScene(gameView);
+//        });
+//
+//        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
+//            
+//            setUpStartView();
+//            primaryStage.setScene(startView);
+//        });
     }
 }

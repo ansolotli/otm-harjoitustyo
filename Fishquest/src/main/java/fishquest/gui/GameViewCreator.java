@@ -34,6 +34,7 @@ public class GameViewCreator {
     }
     
     public Scene createGameView() {
+        
         gameLayout = new Pane();
         gameLayout.setPrefSize(gameWIDTH, gameHEIGHT);
 
