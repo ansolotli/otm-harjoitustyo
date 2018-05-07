@@ -24,4 +24,5 @@
 | 1.5.     | 2 | Arkkitehtuuridokumentti |
 | 1.5.     | 1 | Javadoc aloitettu |
 | 2.5.     | 2 | Javadoc, käyttöliittymän debuggausta, käyttöohje |
-| yhteensä | 36 |  |
+| 7.5.     | 1 | Javadoc |
+| yhteensä | 37 |  |
