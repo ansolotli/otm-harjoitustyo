@@ -7,20 +7,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 /**
- * Class extends MovingShape and creates fish.
+ * Class extends MovingShape and creates fish shapes.
  */
 public class Fish extends MovingShape {
     
     protected boolean alive;
 
     /**
-     * Constructor parameters extend MovingShape and AnyShape.
+     * Constructor of the class Fish
      * 
-     * @param x
-     * @param y 
+     * @param x - x coordinate used for placing the fish on the game field
+     * @param y - y coordinate used for placing the fish on the game field
      * 
-     * Constructor fills a shape with a random colour.
-     * It also sets boolean alive to be true.
+     * Constructor fills a created shape with a random colour ands sets its boolean variable to true
      */
     public Fish(int x, int y) {
         super(new Polygon(0, 0, 0, 20, 20, 10, 40, 0, 60, 10, 40, 20), x, y);

@@ -13,11 +13,11 @@ public abstract class MovingShape extends AnyShape {
     protected Point2D motion;
     
     /**
-     * Constructor gets parameters that extend AnyShape.
+     * Constructor of the interface MovingShape
      * 
      * @param polygon
-     * @param x
-     * @param y 
+     * @param x - x coordinate used for placing the shape on the game field
+     * @param y - y coordinate used for placing the shape on the game field
      * 
      * MovingShape has a Point2D point with x and y coordinates that represents movement.
      */

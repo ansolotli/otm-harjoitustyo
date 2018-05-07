@@ -16,6 +16,7 @@ public class ScoreDao {
     private final Database database;
 
     /**
+     * Constructor of the class ScoreDao
      * @param database - a specific database used in the application
      */
     public ScoreDao(Database database) {

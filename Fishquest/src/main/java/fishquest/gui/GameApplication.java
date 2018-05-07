@@ -36,6 +36,10 @@ public class GameApplication extends Application {
     public static int gameWIDTH = 800;
     public static int gameHEIGHT = 400;
 
+    StartViewCreator startViewCreator;
+    GameViewCreator gameViewCreator;
+    ScoreViewCreator scoreViewCreator;
+    
     Scene startView;
     Scene scoreView;
     Scene gameView;
@@ -55,22 +59,11 @@ public class GameApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("FishQuest");
 
-        StartViewCreator startViewCreator = new StartViewCreator();
-        startView = startViewCreator.createStartView();
-
-        ScoreViewCreator scoreViewCreator = new ScoreViewCreator(scoreDao);
-        scoreView = scoreViewCreator.createScoreView();
-        
-        GameViewCreator gameViewCreator = new GameViewCreator();
-        gameView = gameViewCreator.createGameView();
-
-        boat = gameViewCreator.getBoat();
-        listOfFish = gameViewCreator.getFish();
-        listOfRocks = gameViewCreator.getRocks();
-
-        keysPressed = gameViewCreator.getKeysPressed();
-
+        setUpStartView();
         primaryStage.setScene(startView);
+        
+        setUpGameView();
+        setUpScoreView();
 
         new AnimationTimer() {
 
@@ -128,13 +121,13 @@ public class GameApplication extends Application {
                                 scoreDao.save(score);
                             }
                         } catch (Exception e) {
-                            System.out.println("Something went wrong while saving");
+                            System.out.println("Something went wrong while saving: " + e.getMessage());
                         }
 
                         stop();
 
                         points = 0;
-                        scoreView = scoreViewCreator.createScoreView();
+                        setUpScoreView();
 
                         primaryStage.setScene(scoreView);
                     }
@@ -166,23 +159,23 @@ public class GameApplication extends Application {
             primaryStage.setScene(gameView);
         });
 
-//        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
-//            
-//            gameView = gameViewCreator.createGameView();
-//            boat = gameViewCreator.getBoat();
-//            listOfFish = gameViewCreator.getFish();
-//            listOfRocks = gameViewCreator.getRocks();
-//
-//            keysPressed = gameViewCreator.getKeysPressed();
-//
-//            primaryStage.setScene(gameView);
-//        });
-//
-//        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
-//            
-//            startView = startViewCreator.createStartView();
-//            primaryStage.setScene(startView);
-//        });
+        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
+            
+            gameView = gameViewCreator.createGameView();
+            boat = gameViewCreator.getBoat();
+            listOfFish = gameViewCreator.getFish();
+            listOfRocks = gameViewCreator.getRocks();
+
+            keysPressed = gameViewCreator.getKeysPressed();
+
+            primaryStage.setScene(gameView);
+        });
+
+        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
+            
+            startView = startViewCreator.createStartView();
+            primaryStage.setScene(startView);
+        });
 
         primaryStage.show();
     }
@@ -194,5 +187,26 @@ public class GameApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    public void setUpStartView() {
+        startViewCreator = new StartViewCreator();
+        startView = startViewCreator.createStartView();
+    }
+    
+    public void setUpGameView() {
+        gameViewCreator = new GameViewCreator();
+        gameView = gameViewCreator.createGameView();
+
+        boat = gameViewCreator.getBoat();
+        listOfFish = gameViewCreator.getFish();
+        listOfRocks = gameViewCreator.getRocks();
+
+        keysPressed = gameViewCreator.getKeysPressed();
+    }
+    
+    public void setUpScoreView() {
+        scoreViewCreator = new ScoreViewCreator(scoreDao);
+        scoreView = scoreViewCreator.createScoreView();
     }
 }

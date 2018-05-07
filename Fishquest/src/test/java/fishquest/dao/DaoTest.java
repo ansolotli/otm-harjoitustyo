@@ -39,37 +39,15 @@ public class DaoTest {
     
     @Test
     public void savingIsSuccessful() {
-        Score score = new Score(-1, "AKK", 10);
-        Score score2 = new Score(-1, "", 0);
+        Score newScore = new Score(-1, "AKK", 10);
+        Score score = new Score(-1, "", 0);
         
         try {
-            scoredao.save(score);
+            score = scoredao.save(newScore);
         } catch (Exception e) {
-            System.out.println("Saving to database was not successful");
+            System.out.println("Saving to database was not successful" + e.getMessage());
         }
         
-        try{
-            Connection conn = database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM HighScore WHERE name = 'AKK'");
-        
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                score2 = new Score(rs.getInt("id"), rs.getString("name"), rs.getInt("points"));
-                rs.close();
-                stmt.close();
-                conn.close();
-            
-            } else {
-                rs.close();
-                stmt.close();
-                conn.close();
-            }
-            
-        } catch (Exception e) {
-            System.out.println("Connection could not be formed");
-        }
-        
-        assertEquals("AKK: 10", score2.toString());
+        assertEquals("AKK: 10", score.toString());
     }
 }    

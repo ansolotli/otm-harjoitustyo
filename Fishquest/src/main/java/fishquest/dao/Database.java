@@ -5,10 +5,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * Class creates an SQL-database used in the game application.
+ */
 public class Database {
 
     private final String databaseAddress;
 
+    /**
+     * Constructor of the class Database
+     * @param databaseAddress
+     * @throws Exception 
+     */
     public Database(String databaseAddress) throws Exception {
         this.databaseAddress = databaseAddress;
     }
@@ -21,6 +29,9 @@ public class Database {
         return DriverManager.getConnection(databaseAddress);
     }
 
+    /**
+     * Method initialises the database and creates a database table HighScore if it does not already exist
+     */
     public void init() {
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:scores.db")) {
             if (conn != null) {

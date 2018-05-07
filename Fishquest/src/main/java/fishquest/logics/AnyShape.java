@@ -12,7 +12,7 @@ public abstract class AnyShape {
     protected final Polygon shape;
     
     /**
-     * Constructor gets a Polygon shape and translate coordinates for X and Y axes. 
+     * Constructor of the interface AnyShape 
      * @param polygon - a polygon shape defined by an array of x and y coordinates
      * @param x - a distance by which coordinates are translated along the X axis
      * @param y - a distance by which coordinates are translated along the Y axis

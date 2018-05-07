@@ -17,8 +17,8 @@ import javafx.scene.text.Text;
 public class ScoreViewCreator {
     
     ScoreDao dao;
-//    Button newGameButton;
-//    Button newPlayerButton;
+    Button newGameButton;
+    Button newPlayerButton;
     
     public ScoreViewCreator(ScoreDao dao) {
         this.dao = dao;
@@ -27,8 +27,8 @@ public class ScoreViewCreator {
     public Scene createScoreView() {
         Text scoreText = new Text("HIGHSCORE");
 
-//        newGameButton = new Button("New game");
-//        newPlayerButton = new Button("New player");
+        newGameButton = new Button("New game");
+        newPlayerButton = new Button("New player");
 
         ListView<String> highScoreList = new ListView<>();
         ObservableList<String> list = FXCollections.observableArrayList();
@@ -42,8 +42,8 @@ public class ScoreViewCreator {
 
         scoreLayout.add(scoreText, 0, 0);
         scoreLayout.add(highScoreList, 0, 2);
-//        scoreLayout.add(newGameButton, 0, 4);
-//        scoreLayout.add(newPlayerButton, 0, 5);
+        scoreLayout.add(newGameButton, 0, 4);
+        scoreLayout.add(newPlayerButton, 0, 5);
 
         scoreLayout.setHgap(10);
         scoreLayout.setVgap(10);
@@ -59,17 +59,17 @@ public class ScoreViewCreator {
         try{
             results = dao.displayHighScoreByPoints();
         } catch(Exception e) {
-            System.out.println("Could not search or did not find results");
+            System.out.println("Could not search or did not find results: " + e.getMessage());
         }
         
         return results;
     }
     
-//    public Button getNewGameButton() {
-//        return this.newGameButton;
-//    }
-//    
-//    public Button getNewPlayerButton() {
-//        return this.newPlayerButton;
-//    }
+    public Button getNewGameButton() {
+        return this.newGameButton;
+    }
+    
+    public Button getNewPlayerButton() {
+        return this.newPlayerButton;
+    }
 }
