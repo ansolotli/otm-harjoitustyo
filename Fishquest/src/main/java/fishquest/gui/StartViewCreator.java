@@ -9,14 +9,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
+/**
+ * Class creates the start view
+ */
 public class StartViewCreator {
     
     TextField nameField;
     Button startButton;
     
-    public StartViewCreator() {
-    }
-    
+    /**
+     * Method creates the start view
+     * @return Scene startView
+     */
     public Scene createStartView() {
         Text gameText = new Text("FISHQUEST");
         Label nameText = new Label("Enter your intials:");
@@ -39,6 +43,10 @@ public class StartViewCreator {
         return startView;
     }
     
+    /**
+     * Method returns the name the player has written into textField
+     * @return String name
+     */
     public String getPlayersName() {
         return this.nameField.getText();
     }

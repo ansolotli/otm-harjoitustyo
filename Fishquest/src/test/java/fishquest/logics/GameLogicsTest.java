@@ -30,10 +30,17 @@ public class GameLogicsTest {
     }
     
     @Test
-    public void shapeCollidesWithOthersAfterMovingToTheSamePlace() {
+    public void fishMovesAndCollidesWithBoatAfterMoving() {
         boat = new Boat(35, 5);
         fish.move();
         assertTrue(fish.collidesWith(boat));
+    }
+    
+    @Test
+    public void boatMovesAndCollidesWithRockAfterMoving() {
+        rock = new Rock(35, 5);
+        boat.move();
+        assertTrue(boat.collidesWith(rock));
     }
     
     @Test

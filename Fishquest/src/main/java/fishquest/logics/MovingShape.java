@@ -30,7 +30,7 @@ public abstract class MovingShape extends AnyShape {
     /**
      * Method moves shapes in the game by increasing the distance their coordinates are translated along the axes.
      */
-    public void move() { //tsekkaa rajojen ylitys
+    public void move() {
         shape.setTranslateX(shape.getTranslateX() + this.motion.getX());
         shape.setTranslateY(shape.getTranslateY() + this.motion.getY());
         

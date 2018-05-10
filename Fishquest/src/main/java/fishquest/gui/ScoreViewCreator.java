@@ -9,28 +9,33 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
+/**
+ * Class creates the score view
+ */
 public class ScoreViewCreator {
     
     ScoreDao dao;
-//    Button newGameButton;
-//    Button newPlayerButton;
     
     ListView<String> highScoreList;
     
+    /**
+     * Constructor of the class ScoreView
+     * @param dao - a DAO class that handles storing final scores into an SQL database
+     */
     public ScoreViewCreator(ScoreDao dao) {
         this.dao = dao;
     }
     
+    /**
+     * Method creates the score view
+     * @return Scene scoreView
+     */
     public Scene createScoreView() {
         Text scoreText = new Text("HIGHSCORE");
-
-//        newGameButton = new Button("New game");
-//        newPlayerButton = new Button("New player");
 
         highScoreList = new ListView<>();
         ObservableList<String> list = FXCollections.observableArrayList();
@@ -44,8 +49,6 @@ public class ScoreViewCreator {
 
         scoreLayout.add(scoreText, 0, 0);
         scoreLayout.add(highScoreList, 0, 2);
-//        scoreLayout.add(newGameButton, 0, 4);
-//        scoreLayout.add(newPlayerButton, 0, 5);
 
         scoreLayout.setHgap(10);
         scoreLayout.setVgap(10);
@@ -66,12 +69,4 @@ public class ScoreViewCreator {
         
         return results;
     }
-    
-//    public Button getNewGameButton() {
-//        return this.newGameButton;
-//    }
-//    
-//    public Button getNewPlayerButton() {
-//        return this.newPlayerButton;
-//    }
 }

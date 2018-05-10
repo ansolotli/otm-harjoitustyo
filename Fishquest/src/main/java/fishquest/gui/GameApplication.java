@@ -16,13 +16,17 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
+/**
+ * Class draws the graphic user interface.
+ */
 public class GameApplication extends Application {
-
-    //aloitusnäkymässä Enterin painaminen ei aloita peliä
-    //lopetusnappi
     
     ScoreDao scoreDao;
 
+    /**
+     * Method creates and initialises database used for saving game results.
+     * @throws Exception 
+     */
     @Override
     public void init() throws Exception {
         Database database = new Database("jdbc:sqlite:scores.db");
@@ -151,17 +155,6 @@ public class GameApplication extends Application {
             primaryStage.setScene(gameView);
         });
 
-//        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
-//            setUpGameView();
-//            primaryStage.setScene(gameView);
-//        });
-//
-//        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
-//            
-//            setUpStartView();
-//            primaryStage.setScene(startView);
-//        });
-
         primaryStage.show();
     }
 
@@ -174,11 +167,17 @@ public class GameApplication extends Application {
         launch(args);
     }
     
+    /**
+     * Method sets up the start view that is shown before the game begins
+     */
     public void setUpStartView() {
         startViewCreator = new StartViewCreator();
         startView = startViewCreator.createStartView();
     }
     
+    /**
+     * Method sets up the game view
+     */
     public void setUpGameView() {
         gameViewCreator = new GameViewCreator();
         gameView = gameViewCreator.createGameView();
@@ -190,19 +189,11 @@ public class GameApplication extends Application {
         keysPressed = gameViewCreator.getKeysPressed();
     }
     
+    /**
+     * Method sets up the final score view that is shown after the game ends
+     */
     public void setUpScoreView() {
         scoreViewCreator = new ScoreViewCreator(scoreDao);
         scoreView = scoreViewCreator.createScoreView();
-        
-//        scoreViewCreator.getNewGameButton().setOnAction((event) -> {
-//            setUpGameView();
-//            primaryStage.setScene(gameView);
-//        });
-//
-//        scoreViewCreator.getNewPlayerButton().setOnAction((event) -> {
-//            
-//            setUpStartView();
-//            primaryStage.setScene(startView);
-//        });
     }
 }

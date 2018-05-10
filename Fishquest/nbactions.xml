@@ -16,7 +16,7 @@
         </action>
         <action>
             <actionName>CUSTOM-tyylintarkistus</actionName>
-            <displayName>tyylintarkistus</displayName>
+            <displayName>checkstyle</displayName>
             <goals>
                 <goal>checkstyle:checkstyle</goal>
             </goals>

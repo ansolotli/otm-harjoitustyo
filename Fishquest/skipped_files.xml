@@ -6,4 +6,7 @@
 
 <suppressions>
     <suppress files="fishquest.gui.GameApplication.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fishquest.gui.GameViewCreator.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fishquest.gui.StartViewCreator.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fishquest.gui.ScoreViewCreator.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

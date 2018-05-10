@@ -17,6 +17,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * Class creates the game view
+ */
 public class GameViewCreator {
     
     Random random;
@@ -29,10 +32,17 @@ public class GameViewCreator {
     
     Map<KeyCode, Boolean> keysPressed;
     
+   /**
+    * Constructor of the class GameViewCreator
+    */
     public GameViewCreator() {
         this.random = new Random();
     }
     
+    /**
+     * Method creates the game view
+     * @return Scene gameView
+     */
     public Scene createGameView() {
         
         gameLayout = new Pane();
@@ -88,18 +98,34 @@ public class GameViewCreator {
         return this.listOfRocks;
     }
     
+    /**
+     * Method sets the pointcounter text to a correct number of points
+     * @param points 
+     */
     public void setPointCounterText(int points) {
         pointCounter.setText("Points: " + points);
     }
     
+    /**
+     * Method removes fish shapes that have died from the game
+     * @param fish to be removed
+     */
     public void removeFish(Fish fish) {
         gameLayout.getChildren().remove(fish.getShape());
     }
     
+    /**
+     * Method adds new fish to the game
+     * @param fish to be added
+     */
     public void addFish(Fish fish) {
         gameLayout.getChildren().add(fish.getShape());
     }
     
+    /**
+     * Method gets the keys that have been pressed in the game
+     * @return HashMap of KeyCodes
+     */
     public Map<KeyCode, Boolean> getKeysPressed() {
         return this.keysPressed;
     }
