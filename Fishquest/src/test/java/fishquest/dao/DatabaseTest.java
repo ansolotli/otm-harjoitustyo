@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,6 +34,15 @@ public class DatabaseTest {
         }
         
         database = new Database("jdbc:sqlite:tests.db");
+    }
+    
+    @Test
+    public void getConnectionDoesNotReturnNull() {
+        try {
+            assertFalse(database.getConnection().equals(null));
+        } catch(Exception e) {
+            System.out.println("Could not contact database: " + e.getMessage());
+        }
     }
     
     @Test

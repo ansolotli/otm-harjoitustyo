@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,7 +51,19 @@ public class DaoTest {
     }
     
     @Test
-    public void highScoreListIsInCorrectOrder() {
+    public void highScoreListIsCorrectSize() {
         
+    }
+    
+    @After
+    public void tearDown() {
+        try{
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:tests.db");
+            PreparedStatement stmt = conn.prepareStatement("DROP TABLE IF EXISTS HighScore");
+            stmt.execute();
+            stmt.close();
+        } catch (Exception e){
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
     }
 }    
