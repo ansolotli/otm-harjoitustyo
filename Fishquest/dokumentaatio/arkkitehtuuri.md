@@ -22,7 +22,7 @@ joista jokainen on toteutettu omana Scene-oliona. Kukin näkymä luodaan omassa 
 
 Sovelluksen logiikkaa kuvaa seuraava pakkaus-/luokkakaavio:  
 
-<img src="https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/kuvat/luokkakaavio_yhteydet.png" width="400">  
+<img src="https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/kuvat/luokkakaavio_pakkauksilla.png" width="400">  
 
 ## Tietojen pysyväistallennus  
 
