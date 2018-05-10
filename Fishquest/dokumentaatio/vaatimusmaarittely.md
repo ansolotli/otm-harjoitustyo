@@ -6,15 +6,12 @@ Kyseessä on Asteroids-tyyppinen peli, jossa pelaaja liikkuu ja nappaa kaloja os
 
 ## Perusversion tarjoamat toiminnallisuudet
 
-- Pelaaja saa kalan kiinni osumalla kalaan
-- Pelikentällä on kareja, joita pelaajan tulee väistää tai peli loppuu
-- Pelissä on kalageneraattori, joka luo erilajisia ja eri pituisia kaloja. Jokaisella kalalla on laji, pituus ja alamitta.
-- Jokaisesta kiinni otetusta kalasta saa pisteen.
+- Pelaaja (vene) saa kalan kiinni osumalla kalaan.
+- Pelikentällä on kareja, joita pelaajan tulee väistää tai peli päättyy.
+- Pelissä on kalageneraattori, joka luo erivärisiä kaloja tietyn ajan välein.
+- Jokaisesta kiinni otetusta kalasta saa pisteen.  
+- High score -kirjanpito. Pelin alkaessa kysytään tunnus, joka tallennetaan pisteiden kanssa tietokantaan pelin päätyttyä.
 
 ## Jatkokehitysideoita
 
-- Kalojen alamitan huomiointi. Kun kala jää kiinni, pop-up-ikkuna ilmestyy ja näyttää, mitä lajia ja minkä pituinen kala on kyseessä. Pelaajalle annetaan vaihtoehto pitää kala tai päästää se menemään.
-- Jos pelaaja pitää alamittaisen kalan, hän menettää pisteitä
-- Pistejärjestelmän hiominen. Lajibonus sen mukaan, montako eri lajia on kalastettu?
-- Peliajan rajaaminen tai pelin vaikeuttaminen esim. liikkuvilla kappaleilla (ajopuut tms.), joihin ei saa osua
-- High score -kirjanpito. Pelin päättyessä kysytään kolmikirjaiminen tunnus, joka tallennetaan pisteiden kanssa tietokantaan
+- Peliajan rajaaminen tai pelin vaikeuttaminen esim. liikkuvilla kappaleilla (ajopuut tms.), joihin ei saa osua.
