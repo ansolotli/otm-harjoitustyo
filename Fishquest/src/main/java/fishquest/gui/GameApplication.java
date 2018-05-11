@@ -116,17 +116,7 @@ public class GameApplication extends Application {
 
                 listOfRocks.forEach(rock -> {
                     if (boat.collidesWith(rock)) {
-                        playersName = startViewCreator.getPlayersName();
-                        Score score = new Score(-1, playersName, points);
-
-                        try {
-                            if (points != 0) {
-                                scoreDao.save(score);
-                            }
-                        } catch (Exception e) {
-                            System.out.println("Something went wrong while saving: " + e.getMessage());
-                        }
-
+                        saveAScore();
                         stop();
 
                         points = 0;
@@ -154,7 +144,7 @@ public class GameApplication extends Application {
             } else {
                 System.out.println("Player has not entered a name.");
             }
-           
+
         });
 
         primaryStage.show();
@@ -197,5 +187,21 @@ public class GameApplication extends Application {
     public void setUpScoreView() {
         scoreViewCreator = new ScoreViewCreator(scoreDao);
         scoreView = scoreViewCreator.createScoreView();
+    }
+
+    /**
+     * Method saves a player's score in the game into the database
+     */
+    public void saveAScore() {
+        playersName = startViewCreator.getPlayersName();
+        Score score = new Score(-1, playersName, points);
+
+        try {
+            if (points != 0) {
+                scoreDao.save(score);
+            }
+        } catch (Exception e) {
+            System.out.println("Something went wrong while saving: " + e.getMessage());
+        }
     }
 }
