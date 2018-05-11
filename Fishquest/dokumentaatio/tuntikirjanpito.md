@@ -27,4 +27,5 @@
 | 7.5.     | 1 | Javadoc |
 | 7.5.     | 2 | Testaus, scorenäkymän säätöä |
 | 10.5.    | 1 | Käyttöliittymän javadoc, checkstyle-korjauksia |
-| yhteensä | 40 |  |
+| 11.5.    | 1 | Lisää dao-testejä, yleistä siistimistä |
+| yhteensä | 41 |  |

@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -52,7 +54,81 @@ public class DaoTest {
     
     @Test
     public void highScoreListIsCorrectSize() {
+        score = new Score(-1, "AKK", 10);
+        Score score2 = new Score(-1, "VPK", 19);
+        Score score3 = new Score(-1, "EVE", 6);
         
+        try {
+            scoredao.save(score);
+            scoredao.save(score2);
+            scoredao.save(score3);
+        } catch (Exception e) {
+            System.out.println("Saving to database was not successful" + e.getMessage());
+        }
+        
+        List<Score> testlist = new ArrayList<>();
+        
+        try {
+            testlist = scoredao.displayHighScoreByPoints();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        assertEquals(testlist.size(), 3);
+    }
+    
+    @Test
+    public void highScoreListIsInCorrectOrder() {
+        score = new Score(-1, "AKK", 10);
+        Score score2 = new Score(-1, "VPK", 19);
+        Score score3 = new Score(-1, "EVE", 6);
+        
+        try {
+            scoredao.save(score);
+            scoredao.save(score2);
+            scoredao.save(score3);
+        } catch (Exception e) {
+            System.out.println("Saving to database was not successful" + e.getMessage());
+        }
+        
+        List<Score> testlist = new ArrayList<>();
+        
+        try {
+            testlist = scoredao.displayHighScoreByPoints();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        Score testScore = testlist.get(0);
+        
+        assertEquals("VPK: 19", testScore.toString());
+    }
+    
+    @Test
+    public void HighScoreListIsInCorrectOrder2() {
+        score = new Score(-1, "AKK", 10);
+        Score score2 = new Score(-1, "VPK", 19);
+        Score score3 = new Score(-1, "EVE", 6);
+        
+        try {
+            scoredao.save(score);
+            scoredao.save(score2);
+            scoredao.save(score3);
+        } catch (Exception e) {
+            System.out.println("Saving to database was not successful" + e.getMessage());
+        }
+        
+        List<Score> testlist = new ArrayList<>();
+        
+        try {
+            testlist = scoredao.displayHighScoreByPoints();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        Score testScore = testlist.get(2);
+        
+        assertEquals("EVE: 6", testScore.toString());
     }
     
     @After
