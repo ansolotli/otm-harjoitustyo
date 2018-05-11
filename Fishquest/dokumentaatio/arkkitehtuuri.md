@@ -30,4 +30,9 @@ Pakkauksen *fishquest.dao* luokka ScoreDao huolehtii pelitulosten tallettamisest
 
 ### Tietokanta  
 
-Sovellus tallettaa pelaajien pelitulokset SQL-tietokantaan. Tietokantaan luodaan taulu HighScore, johon tallennetaan kunkin tuloksen yksilöivä id, pelaajan nimi ja pelaajan pelissä saama pistemäärä.
+Sovellus tallettaa pelaajien pelitulokset SQL-tietokantaan. Tietokantaan luodaan taulu HighScore, johon tallennetaan kunkin tuloksen yksilöivä id, pelaajan valitsema nimi ja pelaajan pelissä saama pistemäärä.
+
+## Sovellukseen jääneet heikkoudet
+
+Jos sovellusikkuna suljetaan kesken pelin, pelaajan saamat pisteet eivät tallennu tietokantaan.  
+Peli ei käynnisty ennen kuin pelaaja on syöttänyt tekstikenttään nimen, mutta yrityksestä syöttää tyhjä nimi ei tule pelaajalle näkyvää virheilmoitusta.
