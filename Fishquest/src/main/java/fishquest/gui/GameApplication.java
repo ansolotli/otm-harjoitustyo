@@ -20,12 +20,13 @@ import javafx.stage.Stage;
  * Class draws the graphic user interface.
  */
 public class GameApplication extends Application {
-    
+
     ScoreDao scoreDao;
 
     /**
      * Method creates and initialises database used for saving game results.
-     * @throws Exception 
+     *
+     * @throws Exception
      */
     @Override
     public void init() throws Exception {
@@ -41,7 +42,7 @@ public class GameApplication extends Application {
     StartViewCreator startViewCreator;
     GameViewCreator gameViewCreator;
     ScoreViewCreator scoreViewCreator;
-    
+
     Scene startView;
     Scene scoreView;
     Scene gameView;
@@ -63,7 +64,7 @@ public class GameApplication extends Application {
 
         setUpStartView();
         primaryStage.setScene(startView);
-        
+
         setUpGameView();
         setUpScoreView();
 
@@ -125,11 +126,11 @@ public class GameApplication extends Application {
                         } catch (Exception e) {
                             System.out.println("Something went wrong while saving: " + e.getMessage());
                         }
-                        
+
                         stop();
 
                         points = 0;
-                        
+
                         setUpScoreView();
                         primaryStage.setScene(scoreView);
                     }
@@ -145,28 +146,29 @@ public class GameApplication extends Application {
             }
         }.start();
 
-//        stage.setOnCloseRequest(e -> {
-//            e.consume();
-//            stop();
-//        });
         startViewCreator.getStartButton().setOnAction((event) -> {
 
-            setUpGameView();
-            primaryStage.setScene(gameView);
+            if (!startViewCreator.getPlayersName().equals("")) {
+                setUpGameView();
+                primaryStage.setScene(gameView);
+            } else {
+                System.out.println("Player has not entered a name.");
+            }
+           
         });
 
         primaryStage.show();
-    }
 
-    @Override
-    public void stop() {
-        //ohjelman sulkeminen
+        primaryStage.setOnCloseRequest(e -> {
+            System.out.println("Closing...");
+            primaryStage.close();
+        });
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-    
+
     /**
      * Method sets up the start view that is shown before the game begins
      */
@@ -174,7 +176,7 @@ public class GameApplication extends Application {
         startViewCreator = new StartViewCreator();
         startView = startViewCreator.createStartView();
     }
-    
+
     /**
      * Method sets up the game view
      */
@@ -188,7 +190,7 @@ public class GameApplication extends Application {
 
         keysPressed = gameViewCreator.getKeysPressed();
     }
-    
+
     /**
      * Method sets up the final score view that is shown after the game ends
      */
