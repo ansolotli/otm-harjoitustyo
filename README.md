@@ -13,7 +13,7 @@ Asteroids-tyyppinen kalapeli FishQuest, joka on toteutettu harjoitustyönä Hels
 ## Releaset
 
 [Viikko 5](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko5)  
-[Viikko 6](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko6)
+[Viikko 6](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko6)  
 [Loppupalautus](https://github.com/ansolotli/otm-harjoitustyo/releases/tag/viikko7)  
 
 ## Komentorivitoiminnot
