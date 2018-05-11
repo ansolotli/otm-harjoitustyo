@@ -16,7 +16,7 @@ ScoreDao-luokan ja Database-luokan kautta toimivan SQL-tietokannan toiminnallisu
 
 Käyttöliittymää ja sen rakentavia luokkia lukuunottamatta sovelluksen testauksen rivikattavuus on 79% ja haarautumakattavuus 57%.  
 
-<img src="https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/kuvat/jacoco.PNG" width=700>  
+<img src="https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/kuvat/jacoco.PNG" width=900>  
 
 Testaamatta jäi liikkumiseen liittyviä tekijöitä, kuten pelihahmojen vastaaminen näppäimistön painalluksiin.  
 
