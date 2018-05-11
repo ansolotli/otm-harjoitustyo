@@ -31,3 +31,5 @@ Peliä pelataan liikuttamalla venettä nuolinäppäimillä ja nappaamalla ruudul
 Pelin päätyttyä näkyviin ilmestyy lista huipputuloksista:  
 
 <img src="https://github.com/ansolotli/otm-harjoitustyo/blob/master/Fishquest/dokumentaatio/kuvat/scoreview.PNG" width="300">  
+
+Sovellusikkuna sulkeutuu painamalla oikean yläkulman raksia.
